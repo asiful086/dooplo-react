@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 
@@ -161,9 +163,9 @@ const Header = () => {
             <div className="row">
               <div className="col-lg-12">
                 <nav className="navbar navbar-expand-lg navbar-light">
-                  <a className="navbar-brand" href="index.html">
+                  <Link className="navbar-brand" to="/">
                     <img src="assets/images/logo.png" alt />
-                  </a>
+                  </Link>
                   <button
                     className="navbar-toggler"
                     type="button"
@@ -209,22 +211,22 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="play.html">
+                        <Link className="nav-link" to="/play">
                           Play
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="lottery.html">
+                        <Link className="nav-link" to="/lottery">
                           lottery
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="tournaments.html">
+                        <Link className="nav-link" to="/tournaments">
                           tournaments
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item dropdown">
                         <a
@@ -321,10 +323,10 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="contact.html">
+                        <Link className="nav-link" to="/contact">
                           Contact
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <a
