@@ -64,13 +64,13 @@ const RegisterModal = () => {
                     placeholder="Enter your Confirm Password"
                   />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <select>
                     <option value={0}>BTC</option>
                     <option value={1}>USD</option>
                     <option value={2}>EUR</option>
                   </select>
-                </div>
+                </div> */}
                 <div className="form-group">
                   <div className="check-group">
                     <input
@@ -87,7 +87,8 @@ const RegisterModal = () => {
                 </div>
                 <div className="form-group">
                   <button type="submit" className="mybtn1">
-                    Take Bonus
+                    {/* Take Bonus */}
+                    SIGNUP
                   </button>
                 </div>
               </form>
