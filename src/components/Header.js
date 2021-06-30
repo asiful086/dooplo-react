@@ -157,7 +157,7 @@ const Header = () => {
           </div>
         </section>
         {/* Top Header Area End */}
-        {/*Main-Menu Area Start*/}
+        {/*Main-Menu Area Start here*/}
         <div className="mainmenu-area">
           <div className="container">
             <div className="row">
@@ -242,83 +242,80 @@ const Header = () => {
                         </a>
                         <ul className="dropdown-menu">
                           <li>
-                            <a className="dropdown-item" href="about.html">
+                            <Link className="dropdown-item" to="/about">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               About
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="affiliate.html">
+                            <Link className="dropdown-item" href="/affiliate">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Affiliate
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="awards.html">
+                            <Link className="dropdown-item" to="/awards">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Awards
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="bonus.html">
+                            <Link className="dropdown-item" to="bonus">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Bonus
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="cart.html">
+                            <Link className="dropdown-item" to="/cart">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Cart
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="faq.html">
+                            <Link className="dropdown-item" to="/faq">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Faq
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
-                              className="dropdown-item"
-                              href="how-it-work.html"
-                            >
+                            <Link className="dropdown-item" to="/how-it-work">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               How It Work
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               className="dropdown-item"
-                              href="terms-conditions.html"
+                              to="/terms-and-condition"
                             >
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Terms &amp; Condition
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               className="dropdown-item"
-                              href="terms-conditions-details.html"
+                              to="/condition-details"
                             >
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Condition Details
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="404.html">
+                            <Link className="dropdown-item" to="/404">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               404
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
