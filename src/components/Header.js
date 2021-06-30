@@ -1,3 +1,6 @@
+import LoginModal from "./modal/LoginModal";
+import RegisterModal from "./modal/RegisterModal";
+
 const Header = () => {
   return (
     <>
@@ -341,9 +344,18 @@ const Header = () => {
         </div>
         {/*Main-Menu Area Start*/}
       </header>
+
+      {/* Back to Top Start */}
       <div className="bottomtotop">
         <i className="fas fa-chevron-right" />
       </div>
+      {/* Back to Top End */}
+      {/* Login Area Start */}
+      <LoginModal />
+      {/* Login Area End */}
+      {/* SignIn Area Start */}
+      <RegisterModal />
+      {/* SignIn Area End */}
     </>
   );
 };
