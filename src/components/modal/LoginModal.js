@@ -1,4 +1,13 @@
+import { Formik, Form } from "formik";
+import axios from "axios";
+import AuthField from "../form/AuthField";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const LoginModal = () => {
+  const [state, setState] = useState({
+    error: "",
+  });
   return (
     <div
       className="modal fade login-modal"
@@ -20,57 +29,89 @@ const LoginModal = () => {
           </button>
           <div className="modal-body">
             <div className="logo-area">
-              <img className="logo" src="assets/images/logo.png" alt />
+              <img className="logo" src="assets/images/logo.png" alt="logo" />
             </div>
             <div className="header-area">
               <h4 className="title">Great to have you back!</h4>
               <p className="sub-title">Enter your details below.</p>
+
+              {state.errorMessage && (
+                <p className="fw-bold text-danger">{state.errorMessage}</p>
+              )}
             </div>
-            <div className="form-area">
-              <form action="#" method="POST">
-                <div className="form-group">
-                  <label htmlFor="login-input-email">Email*</label>
-                  <input
-                    type="email"
-                    className="input-field"
-                    id="login-input-email"
-                    placeholder="Enter your Email"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="login-input-password">Password*</label>
-                  <input
-                    type="password"
-                    className="input-field"
-                    id="login-input-password"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group">
-                  <div className="box">
-                    <div className="left">
-                      <input
-                        type="checkbox"
-                        className="check-box-field"
-                        id="input-save-password"
-                        defaultChecked
-                      />
-                      <label htmlFor="input-save-password">
-                        Remember Password
-                      </label>
+
+            <Formik
+              initialValues={{
+                email: "prashant@webcab.in",
+                password: "qwertyui",
+              }}
+              onSubmit={async (values, actions) => {
+                var formData = new FormData();
+                formData.append("email", values.email);
+                formData.append("password", values.password);
+                let res = await axios.post(
+                  "https://easylifeyes.com/lottery/login",
+                  formData
+                );
+                if (res.data.response === "ERROR") {
+                  setState({
+                    ...state,
+                    errorMessage: res.data.message,
+                  });
+                }
+                console.log(res.data);
+              }}
+            >
+              {({ values, isSubmitting, errors }) => (
+                <div className="form-area">
+                  <Form>
+                    {/* email */}
+                    <AuthField
+                      required={true}
+                      label="Email*"
+                      name="email"
+                      type="email"
+                      id="login-input-email"
+                      placeholder="Enter your Email"
+                    />
+                    {/* password */}
+                    <AuthField
+                      required={true}
+                      label="Password*"
+                      name="password"
+                      type="password"
+                      id="login-input-password"
+                      placeholder="Enter your password"
+                    />
+                    <div className="form-group">
+                      <div className="box">
+                        <div className="left">
+                          <input
+                            type="checkbox"
+                            className="check-box-field"
+                            id="input-save-password"
+                            defaultChecked
+                          />
+                          <label htmlFor="input-save-password">
+                            Remember Password
+                          </label>
+                        </div>
+                        <div className="right">
+                          <Link href="/">Forgot Password?</Link>
+                        </div>
+                      </div>
                     </div>
-                    <div className="right">
-                      <a href="#">Forgot Password?</a>
+                    <div className="form-group">
+                      <button type="submit" className="mybtn1">
+                        Log In
+                      </button>
                     </div>
-                  </div>
+                    {/* </form> */}
+                  </Form>
                 </div>
-                <div className="form-group">
-                  <button type="submit" className="mybtn1">
-                    Log In
-                  </button>
-                </div>
-              </form>
-            </div>
+              )}
+            </Formik>
+
             <div className="form-footer">
               <p>
                 Not a member?
