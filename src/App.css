@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 } */
+
+.headerButton {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #a1aed4;
+  border: 1px solid #a1aed4;
+  border-radius: 20px;
+}

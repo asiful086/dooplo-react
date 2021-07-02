@@ -10,7 +10,8 @@ const LoginModal = () => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
-    error: "",
+    errorMessage: "",
+    successMessage: "",
   });
   return (
     <div
@@ -42,6 +43,10 @@ const LoginModal = () => {
               {state.errorMessage && (
                 <p className="fw-bold text-danger">{state.errorMessage}</p>
               )}
+
+              {state.successMessage && (
+                <p className="fw-bold text-success">{state.successMessage}</p>
+              )}
             </div>
 
             <Formik
@@ -61,16 +66,22 @@ const LoginModal = () => {
                 );
 
                 if (res.data.response === "SUCCESS") {
+                  setState({
+                    ...state,
+                    errorMessage: "",
+                    successMessage: res.data.message,
+                  });
                   dispatch(login(res.data.dataArr));
                 }
 
                 if (res.data.response === "ERROR") {
                   setState({
                     ...state,
+                    successMessage: "",
                     errorMessage: res.data.message,
                   });
                 }
-                // console.log(res.data.dataArr);
+                console.log(res.data.dataArr);
               }}
             >
               {({ values, isSubmitting, errors }) => (

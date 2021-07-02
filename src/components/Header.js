@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../store/action/userAction";
 
 import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
 
   return (
@@ -143,8 +145,13 @@ const Header = () => {
                         </div>
                       </li>
                       <li>
-                        {user ? (
-                          <button>signout</button>
+                        {!user ? (
+                          <button
+                            onClick={() => dispatch(logout())}
+                            className="headerButton"
+                          >
+                            sign out
+                          </button>
                         ) : (
                           <a
                             href=""

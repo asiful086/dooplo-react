@@ -5,18 +5,18 @@ const initailState = {
 const cartReducer = (state = initailState, action) => {
   switch (action.type) {
     case "LOGIN": {
-        
       return {
         ...state,
         user: action.payload,
       };
     }
 
-    case "DECREMENT":
+    case "LOGOUT": {
       return {
         ...state,
-        count: state.count - 1,
+        user: null,
       };
+    }
 
     default:
       return state;

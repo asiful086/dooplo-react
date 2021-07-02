@@ -17,6 +17,8 @@ import Play from "./pages/Play";
 import TermsAndCondition from "./pages/TermsAndCondition";
 import Tournaments from "./pages/Tournaments";
 
+import "./App.css";
+
 const App = () => {
   let urlName = useLocation().pathname;
   let isExists = urlName.includes("0") || urlName.includes("2");
@@ -49,5 +51,4 @@ const App = () => {
 
 export default App;
 
-
-// this is app 
+// this is app
