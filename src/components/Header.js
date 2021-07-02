@@ -340,15 +340,17 @@ const Header = () => {
                         </Link>
                       </li>
                     </ul>
-                    <a
-                      href="#"
-                      className="mybtn1"
-                      data-toggle="modal"
-                      data-target="#signin"
-                    >
-                      {" "}
-                      Join us
-                    </a>
+                    {!user && (
+                      <a
+                        href="#"
+                        className="mybtn1"
+                        data-toggle="modal"
+                        data-target="#signin"
+                      >
+                        {" "}
+                        Join us
+                      </a>
+                    )}
                   </div>
                 </nav>
               </div>
