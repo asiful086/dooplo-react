@@ -76,12 +76,16 @@ const RegisterModal = () => {
                   });
                   dispatch(login(res.data.dataArr));
 
+
                   setTimeout(function () {
                     modalRef.current.classList.remove("show");
                     document
                       .querySelector(".modal-backdrop")
                       .classList.remove("show");
                   }, 1000);
+                  
+                  
+                  
                 }
 
                 if (res.data.response === "ERROR") {

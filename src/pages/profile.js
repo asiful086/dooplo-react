@@ -115,7 +115,7 @@ const Profile = () => {
           >
             {({ values, isSubmitting, errors }) => (
               <Form>
-                <div className="row justify-content-end">
+                <div className="row justify-content-center align-items-center">
                   <div className="col-lg-6">
                     <div className="contact-form-wrapper">
                       <div className="contact-box">
@@ -177,30 +177,7 @@ const Profile = () => {
                           id="profile-input-city"
                           placeholder="Enter your city"
                         />
-                        {/* <textarea
-                          className="input-field textarea"
-                          placeholder="Message *"
-                          defaultValue={""}
-                        /> */}
-                        {/* <input
-                          type="text"
-                          className="input-field"
-                          placeholder="Enter Your Full Name"
-                        /> */}
-
-                        {/* <input
-                          type="email"
-                          className="input-field"
-                          placeholder="Enter Your Email Address"
-                        /> */}
-                        {/* <button type="submit" className="mybtn1">
-                      SUBMIT NOW
-                    </button> */}
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="contact-form-wrapper">
                       <div className="contact-box">
                         <h4 className="title">Bank Details</h4>
                         {/* account_holder_name */}
@@ -236,22 +213,6 @@ const Profile = () => {
                           placeholder="Bank Name"
                         />
 
-                        {/* <textarea
-                          className="input-field textarea"
-                          placeholder="Message *"
-                          defaultValue={""}
-                        /> */}
-
-                        {/* <input
-                          type="text"
-                          className="input-field"
-                          placeholder="Enter Your Full Name"
-                        />
-                        <input
-                          type="email"
-                          className="input-field"
-                          placeholder="Enter Your Email Address"
-                        /> */}
                         <button type="submit" className="mybtn1">
                           SUBMIT NOW
                         </button>
