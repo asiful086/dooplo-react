@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 
 const Header = () => {
+  const user = useSelector((state) => state.userReducer.user);
+
   return (
     <>
       <header className="header">
@@ -140,14 +143,18 @@ const Header = () => {
                         </div>
                       </li>
                       <li>
-                        <a
-                          href=""
-                          className="sign-in"
-                          data-toggle="modal"
-                          data-target="#login"
-                        >
-                          <i className="fas fa-user" /> Sign In
-                        </a>
+                        {user ? (
+                          <button>signout</button>
+                        ) : (
+                          <a
+                            href=""
+                            className="sign-in"
+                            data-toggle="modal"
+                            data-target="#login"
+                          >
+                            <i className="fas fa-user" /> Sign In
+                          </a>
+                        )}
                       </li>
                     </ul>
                   </div>

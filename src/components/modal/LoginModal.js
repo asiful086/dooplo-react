@@ -3,8 +3,12 @@ import axios from "axios";
 import AuthField from "../form/AuthField";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/action/userAction";
 
 const LoginModal = () => {
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     error: "",
   });
@@ -42,8 +46,10 @@ const LoginModal = () => {
 
             <Formik
               initialValues={{
-                email: "prashant@webcab.in",
-                password: "qwertyui",
+                // email: "prashant@webcab.in",
+                // password: "qwertyui",
+                email: "",
+                password: "",
               }}
               onSubmit={async (values, actions) => {
                 var formData = new FormData();
@@ -53,13 +59,18 @@ const LoginModal = () => {
                   "https://easylifeyes.com/lottery/login",
                   formData
                 );
+
+                if (res.data.response === "SUCCESS") {
+                  dispatch(login(res.data.dataArr));
+                }
+
                 if (res.data.response === "ERROR") {
                   setState({
                     ...state,
                     errorMessage: res.data.message,
                   });
                 }
-                console.log(res.data);
+                // console.log(res.data.dataArr);
               }}
             >
               {({ values, isSubmitting, errors }) => (
