@@ -145,7 +145,7 @@ const Header = () => {
                         </div>
                       </li>
                       <li>
-                        {!user ? (
+                        {user ? (
                           <button
                             onClick={() => dispatch(logout())}
                             className="headerButton"
