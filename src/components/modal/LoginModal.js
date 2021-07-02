@@ -57,6 +57,9 @@ const LoginModal = () => {
                 password: "",
               }}
               onSubmit={async (values, actions) => {
+                // window.document.getElementById("#login").modal("hide");
+                // document.getElementById("#login").hide();
+                console.log("from", window.document.getElementById("#login"));
                 var formData = new FormData();
                 formData.append("email", values.email);
                 formData.append("password", values.password);
@@ -105,7 +108,7 @@ const LoginModal = () => {
                       id="login-input-password"
                       placeholder="Enter your password"
                     />
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <div className="box">
                         <div className="left">
                           <input
@@ -122,7 +125,7 @@ const LoginModal = () => {
                           <Link href="/">Forgot Password?</Link>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                       <button type="submit" className="mybtn1">
                         Log In
@@ -137,7 +140,12 @@ const LoginModal = () => {
             <div className="form-footer">
               <p>
                 Not a member?
-                <a href="#">
+                <a
+                  href="#"
+                  data-dismiss="modal"
+                  data-toggle="modal"
+                  data-target="#signin"
+                >
                   Create account <i className="fas fa-angle-double-right" />
                 </a>
               </p>

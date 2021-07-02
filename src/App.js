@@ -18,6 +18,7 @@ import TermsAndCondition from "./pages/TermsAndCondition";
 import Tournaments from "./pages/Tournaments";
 
 import "./App.css";
+import Profile from "./pages/profile";
 
 const App = () => {
   let urlName = useLocation().pathname;
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/terms-and-condition" component={TermsAndCondition} />
         <Route path="/condition-details" component={ConditionDetails} />
         <Route path="/404" component={Four0Four} />
+        <Route path="/profile" component={Profile} />
       </Switch>
       {!isExists && <Footer />}
     </>

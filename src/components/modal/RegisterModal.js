@@ -131,7 +131,7 @@ const RegisterModal = () => {
                     <option value={2}>EUR</option>
                   </select>
                 </div> */}
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <div className="check-group">
                         <input
                           type="checkbox"
@@ -144,7 +144,7 @@ const RegisterModal = () => {
                           <a href="#">privacy policy</a>
                         </label>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                       <button type="submit" className="mybtn1">
                         {/* Take Bonus */}
@@ -155,6 +155,19 @@ const RegisterModal = () => {
                 </div>
               )}
             </Formik>
+            <div className="form-footer">
+              <p>
+                Already a memeber
+                <a
+                  href="#"
+                  data-dismiss="modal"
+                  data-toggle="modal"
+                  data-target="#login"
+                >
+                  Sign in <i className="fas fa-angle-double-right" />
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
