@@ -1,13 +1,14 @@
 import { Formik, Form } from "formik";
 import axios from "axios";
 import AuthField from "../form/AuthField";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/action/userAction";
 
 const LoginModal = () => {
   const dispatch = useDispatch();
+  const modalRef = useRef();
 
   const [state, setState] = useState({
     errorMessage: "",
@@ -15,6 +16,7 @@ const LoginModal = () => {
   });
   return (
     <div
+      ref={modalRef}
       className="modal fade login-modal"
       id="login"
       tabIndex={-1}
@@ -51,15 +53,10 @@ const LoginModal = () => {
 
             <Formik
               initialValues={{
-                // email: "prashant@webcab.in",
-                // password: "qwertyui",
                 email: "",
                 password: "",
               }}
               onSubmit={async (values, actions) => {
-                // window.document.getElementById("#login").modal("hide");
-                // document.getElementById("#login").hide();
-                console.log("from", window.document.getElementById("#login"));
                 var formData = new FormData();
                 formData.append("email", values.email);
                 formData.append("password", values.password);
@@ -75,6 +72,13 @@ const LoginModal = () => {
                     successMessage: res.data.message,
                   });
                   dispatch(login(res.data.dataArr));
+
+                  setTimeout(function () {
+                    modalRef.current.classList.remove("show");
+                    document
+                      .querySelector(".modal-backdrop")
+                      .classList.remove("show");
+                  }, 1000);
                 }
 
                 if (res.data.response === "ERROR") {

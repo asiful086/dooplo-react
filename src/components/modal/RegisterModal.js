@@ -1,12 +1,13 @@
 import { Formik, Form } from "formik";
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/action/userAction";
 
 import AuthField from "../form/AuthField";
 
 const RegisterModal = () => {
+  const modalRef = useRef();
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -15,6 +16,7 @@ const RegisterModal = () => {
   });
   return (
     <div
+      ref={modalRef}
       className="modal fade login-modal sign-in"
       id="signin"
       tabIndex={-1}
@@ -73,6 +75,13 @@ const RegisterModal = () => {
                     successMessage: res.data.message,
                   });
                   dispatch(login(res.data.dataArr));
+
+                  setTimeout(function () {
+                    modalRef.current.classList.remove("show");
+                    document
+                      .querySelector(".modal-backdrop")
+                      .classList.remove("show");
+                  }, 1000);
                 }
 
                 if (res.data.response === "ERROR") {

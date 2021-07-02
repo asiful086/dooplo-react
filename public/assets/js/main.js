@@ -208,6 +208,8 @@ $(function ($) {
         $($tselector).text(total);
     });
 
+    
+
    
 
 });
