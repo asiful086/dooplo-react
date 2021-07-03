@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import AuthField from "../components/form/AuthField";
+import { useEffect } from "react";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,9 @@ const Profile = () => {
     errorMessage: "",
     successMessage: "",
   });
+  useEffect(() => {
+    console.log("hello from profile page");
+  }, []);
   return (
     <>
       {/* Breadcrumb Area Start */}

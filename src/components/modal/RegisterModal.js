@@ -76,16 +76,19 @@ const RegisterModal = () => {
                   });
                   dispatch(login(res.data.dataArr));
 
-
                   setTimeout(function () {
                     modalRef.current.classList.remove("show");
-                    document
-                      .querySelector(".modal-backdrop")
-                      .classList.remove("show");
+                    modalRef.current.classList.add("d-none");
+
+                    let backDrop = document.querySelector(".modal-backdrop");
+
+                    backDrop.classList.remove("show");
+                    backDrop.classList.add("d-none");
+                    // modalRef.current.classList.remove("show");
+                    // document
+                    //   .querySelector(".modal-backdrop")
+                    //   .classList.remove("show");
                   }, 1000);
-                  
-                  
-                  
                 }
 
                 if (res.data.response === "ERROR") {
@@ -95,7 +98,6 @@ const RegisterModal = () => {
                     errorMessage: res.data.message,
                   });
                 }
-                console.log(res.data.dataArr);
               }}
             >
               {({ values, isSubmitting, errors }) => (

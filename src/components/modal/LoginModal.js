@@ -74,10 +74,20 @@ const LoginModal = () => {
                   dispatch(login(res.data.dataArr));
 
                   setTimeout(function () {
+                    // modalRef.current.transition = "all 2s !important";
                     modalRef.current.classList.remove("show");
-                    document
-                      .querySelector(".modal-backdrop")
-                      .classList.remove("show");
+                    modalRef.current.classList.add("d-none");
+
+                    let backDrop = document.querySelector(".modal-backdrop");
+
+                    backDrop.classList.remove("show");
+                    backDrop.classList.add("d-none");
+
+                    // modalRef.current.classList.remove("show");
+                    // modalRef.current.display = "none";
+                    // document
+                    //   .querySelector(".modal-backdrop")
+                    //   .classList.remove("show");
                   }, 1000);
                 }
 
