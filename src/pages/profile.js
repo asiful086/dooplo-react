@@ -1,4 +1,4 @@
-import { Formik, Form } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -12,10 +12,32 @@ const Profile = () => {
   const [state, setState] = useState({
     errorMessage: "",
     successMessage: "",
+    states: [],
+    cities: [],
   });
   useEffect(() => {
-    console.log("hello from profile page");
+    axios.get("https://easylifeyes.com/lottery/get_states").then((res) => {
+      // console.log(res.data.data);
+
+      setState({
+        ...state,
+        states: res.data.data,
+      });
+    });
+
+    axios.get("https://easylifeyes.com/lottery/get_cities").then((res) => {
+      console.log("indisde city", res.data);
+      setState({
+        ...state,
+        cities: res.data.data,
+      });
+    });
+
+    // console.log(res.data);
   }, []);
+
+  console.log("from state", state.states);
+
   return (
     <>
       {/* Breadcrumb Area Start */}
@@ -79,8 +101,8 @@ const Profile = () => {
               contact_no: "",
               street_address: "",
               locality: "",
-              city: "",
               state: "",
+              city: "",
               account_holder_name: "",
               account_no: "",
               ifsc_code: "",
@@ -166,21 +188,69 @@ const Profile = () => {
                           placeholder="Enter your Locality"
                         />
                         {/* state */}
-                        <AuthField
+                        <div className="relative inline-block w-full text-gray-700 ">
+                          <Field
+                            as="select"
+                            className="px-3 py-3 placeholder-gray-400 text-gray-700 relative 
+                        bg-white rounded text-sm shadow outline-none focus:outline-none 
+                        focus:shadow-outline w-full border"
+                            placeholder="Regular input"
+                            name="state"
+                          >
+                            <option value="">Select state</option>
+
+                            {state.states &&
+                              state.states.map((st) => (
+                                <option value={st.state_id} key={st.state_id}>
+                                  {st.state_name}
+                                </option>
+                              ))}
+                          </Field>
+                          <ErrorMessage
+                            component="div"
+                            name="state"
+                            className="text-red-500"
+                          />
+                        </div>
+                        {/* <AuthField
                           required={true}
                           name="state"
                           type="text"
                           id="profile-input-state"
                           placeholder="Enter your state"
-                        />
+                        /> */}
                         {/* city */}
-                        <AuthField
+                        <div className="relative inline-block w-full text-gray-700 ">
+                          <Field
+                            as="select"
+                            className="px-3 py-3 placeholder-gray-400 text-gray-700 relative 
+                        bg-white rounded text-sm shadow outline-none focus:outline-none 
+                        focus:shadow-outline w-full border"
+                            placeholder="Regular input"
+                            name="city"
+                          >
+                            <option value="">Select city</option>
+
+                            {state.cities &&
+                              state.cities.map((city) => (
+                                <option value={city.city_id} key={city.city_id}>
+                                  {city.city_name}
+                                </option>
+                              ))}
+                          </Field>
+                          <ErrorMessage
+                            component="div"
+                            name="city"
+                            className="text-red-500"
+                          />
+                        </div>
+                        {/* <AuthField
                           required={true}
                           name="city"
                           type="text"
                           id="profile-input-city"
                           placeholder="Enter your city"
-                        />
+                        /> */}
                       </div>
                       <div className="contact-box">
                         <h4 className="title">Bank Details</h4>
