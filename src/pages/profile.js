@@ -18,22 +18,16 @@ const Profile = () => {
   useEffect(() => {
     axios.get("https://easylifeyes.com/lottery/get_states").then((res) => {
       // console.log(res.data.data);
-
-      setState({
-        ...state,
-        states: res.data.data,
+      let all_state = res.data.data;
+      axios.get("https://easylifeyes.com/lottery/get_cities").then((res) => {
+        console.log("indisde city", res.data);
+        setState({
+          ...state,
+          states: all_state,
+          cities: res.data.data,
+        });
       });
     });
-
-    axios.get("https://easylifeyes.com/lottery/get_cities").then((res) => {
-      console.log("indisde city", res.data);
-      setState({
-        ...state,
-        cities: res.data.data,
-      });
-    });
-
-    // console.log(res.data);
   }, []);
 
   console.log("from state", state.states);
