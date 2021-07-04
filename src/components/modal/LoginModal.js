@@ -76,12 +76,14 @@ const LoginModal = () => {
                   setTimeout(function () {
                     // modalRef.current.transition = "all 2s !important";
                     modalRef.current.classList.remove("show");
-                    modalRef.current.classList.add("d-none");
 
                     let backDrop = document.querySelector(".modal-backdrop");
 
                     backDrop.classList.remove("show");
-                    backDrop.classList.add("d-none");
+                    setTimeout(function () {
+                      modalRef.current.classList.add("d-none");
+                      backDrop.classList.add("d-none");
+                    }, 500);
 
                     // modalRef.current.classList.remove("show");
                     // modalRef.current.display = "none";
