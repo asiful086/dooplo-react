@@ -19,18 +19,32 @@ const Profile = () => {
     axios.get("https://easylifeyes.com/lottery/get_states").then((res) => {
       // console.log(res.data.data);
       let all_state = res.data.data;
-      axios.get("https://easylifeyes.com/lottery/get_cities").then((res) => {
+      axios.post("https://easylifeyes.com/lottery/get_cities").then((res) => {
         console.log("indisde city", res.data);
         setState({
           ...state,
           states: all_state,
-          cities: res.data.data,
+          cities: [
+            {
+              city_id: "55",
+              state_id: "5",
+              city_name: "Araria",
+            },
+            {
+              city_id: "57",
+              state_id: "5",
+              city_name: "Banka",
+            },
+            {
+              city_id: "58",
+              state_id: "5",
+              city_name: "Begusarai",
+            },
+          ],
         });
       });
     });
   }, []);
-
-  console.log("from state", state.states);
 
   return (
     <>
@@ -224,13 +238,20 @@ const Profile = () => {
                             name="city"
                           >
                             <option value="">Select city</option>
-
-                            {state.cities &&
-                              state.cities.map((city) => (
+                            {state.cities
+                              .filter((city) => city.state_id === values.state)
+                              .map((city) => (
                                 <option value={city.city_id} key={city.city_id}>
                                   {city.city_name}
                                 </option>
                               ))}
+
+                            {/* {state.cities &&
+                              state.cities.map((city) => (
+                                <option value={city.city_id} key={city.city_id}>
+                                  {city.city_name}
+                                </option>
+                              ))} */}
                           </Field>
                           <ErrorMessage
                             component="div"
@@ -288,6 +309,8 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+                <pre>{JSON.stringify(values, null, 2)}</pre>
+                <pre>{JSON.stringify(errors, null, 2)}</pre>
               </Form>
             )}
           </Formik>
