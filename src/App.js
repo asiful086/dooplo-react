@@ -44,7 +44,7 @@ const App = () => {
         <Route path="/terms-and-condition" component={TermsAndCondition} />
         <Route path="/condition-details" component={ConditionDetails} />
         <Route path="/404" component={Four0Four} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
       </Switch>
       {!isExists && <Footer />}
     </>

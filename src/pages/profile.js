@@ -6,8 +6,11 @@ import { useDispatch } from "react-redux";
 import AuthField from "../components/form/AuthField";
 import { useEffect } from "react";
 
-const Profile = () => {
+const Profile = ({ match }) => {
   const dispatch = useDispatch();
+
+  const [profileData, setProfileData] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [state, setState] = useState({
     errorMessage: "",
@@ -15,37 +18,39 @@ const Profile = () => {
     states: [],
     cities: [],
   });
+
   useEffect(() => {
+    // fetching user profile data
+    setLoading(true);
+    var formData = new FormData();
+    formData.append("userid", match.params.id);
+    // formData.append("userid", 4);
+    axios
+      .post("https://easylifeyes.com/lottery/get_user_profile", formData)
+      .then((res) => {
+        setProfileData(res.data.data[0]);
+      });
+
     axios.get("https://easylifeyes.com/lottery/get_states").then((res) => {
-      // console.log(res.data.data);
       let all_state = res.data.data;
       axios.post("https://easylifeyes.com/lottery/get_cities").then((res) => {
-        console.log("indisde city", res.data);
+        // console.log("indisde city", res.data);
         setState({
           ...state,
           states: all_state,
           cities: res.data.data,
-          // cities: [
-          //   {
-          //     city_id: "55",
-          //     state_id: "5",
-          //     city_name: "Araria",
-          //   },
-          //   {
-          //     city_id: "57",
-          //     state_id: "5",
-          //     city_name: "Banka",
-          //   },
-          //   {
-          //     city_id: "58",
-          //     state_id: "5",
-          //     city_name: "Begusarai",
-          //   },
-          // ],
         });
+        setLoading(false);
       });
     });
   }, []);
+
+  // console.log("sldkfjsl", profileData);
+  if (loading) {
+    return <h1>loading</h1>;
+  }
+
+  console.log(profileData);
 
   return (
     <>
@@ -103,29 +108,38 @@ const Profile = () => {
           </div>
           <Formik
             initialValues={{
-              // email: "prashant@webcab.in",
-              // password: "qwertyui",
-              name: "",
-              email: "",
-              contact_no: "",
-              street_address: "",
-              locality: "",
-              state: "",
-              city: "",
-              account_holder_name: "",
-              account_no: "",
-              ifsc_code: "",
-              bank_name: "",
+              userid: match.params.id,
+              name: profileData && profileData.name,
+              email: profileData.email,
+              contact_no: profileData.contact_no,
+              street_address: profileData.street_address,
+              locality: profileData.locality,
+              state_id: profileData.state_id,
+              city_id: profileData.city_id,
+              account_holder_name: profileData.account_holder_name,
+              account_no: profileData.account_no,
+              ifsc_code: profileData.ifsc_code,
+              bank_name: profileData.bank_name,
             }}
             onSubmit={async (values, actions) => {
-              // window.document.getElementById("#login").modal("hide");
-              // document.getElementById("#login").hide();
-              console.log("from", window.document.getElementById("#login"));
               var formData = new FormData();
+              formData.append("userid", values.userid);
+              formData.append("name", values.name);
               formData.append("email", values.email);
-              formData.append("password", values.password);
+              formData.append("contact_no", values.contact_no);
+              formData.append("street_address", values.street_address);
+              formData.append("locality", values.locality);
+              formData.append("state_id", values.state_id);
+              formData.append("city_id", values.city_id);
+              formData.append(
+                "account_holder_name",
+                values.account_holder_name
+              );
+              formData.append("account_no", values.account_no);
+              formData.append("ifsc_code", values.ifsc_code);
+              formData.append("bank_name", values.bank_name);
               let res = await axios.post(
-                "https://easylifeyes.com/lottery/login",
+                "https://easylifeyes.com/lottery/save_profile",
                 formData
               );
 
@@ -166,6 +180,7 @@ const Profile = () => {
                         />
                         {/* email */}
                         <AuthField
+                          readOnly
                           required={true}
                           name="email"
                           type="email"
@@ -182,7 +197,7 @@ const Profile = () => {
                         />
                         {/* street_address */}
                         <AuthField
-                          required={true}
+                          // required={true}
                           name="street_address"
                           type="text"
                           id="profile-input-street_address"
@@ -190,7 +205,7 @@ const Profile = () => {
                         />
                         {/* locality */}
                         <AuthField
-                          required={true}
+                          // required={true}
                           name="locality"
                           type="text"
                           id="profile-input-locality"
@@ -203,7 +218,7 @@ const Profile = () => {
                             // className="profileSelect rounded-pill px-2 py-1 w-100 my-1"
                             className="profileSelect"
                             placeholder="Regular input"
-                            name="state"
+                            name="state_id"
                           >
                             <option value="">Select state</option>
 
@@ -226,11 +241,13 @@ const Profile = () => {
                             as="select"
                             className="profileSelect"
                             placeholder="Regular input"
-                            name="city"
+                            name="city_id"
                           >
                             <option value="">Select city</option>
                             {state.cities
-                              .filter((city) => city.state_id === values.state)
+                              .filter(
+                                (city) => city.state_id === values.state_id
+                              )
                               .map((city) => (
                                 <option value={city.city_id} key={city.city_id}>
                                   {city.city_name}
@@ -250,13 +267,7 @@ const Profile = () => {
                             className="text-red-500"
                           />
                         </div>
-                        {/* <AuthField
-                          required={true}
-                          name="city"
-                          type="text"
-                          id="profile-input-city"
-                          placeholder="Enter your city"
-                        /> */}
+                       
                       </div>
                       <div className="contact-box">
                         <h4 className="title">Bank Details</h4>

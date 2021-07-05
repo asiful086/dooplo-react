@@ -224,12 +224,18 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" to="/play">
-                          Play
-                          <div className="mr-hover-effect" />
-                        </Link>
-                      </li>
+                      {user && (
+                        <li className="nav-item">
+                          <Link
+                            className="nav-link"
+                            to={`/profile/${user.userid}`}
+                          >
+                            Profile
+                            <div className="mr-hover-effect" />
+                          </Link>
+                        </li>
+                      )}
+
                       <li className="nav-item">
                         <Link className="nav-link" to="/lottery">
                           lottery
