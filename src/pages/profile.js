@@ -267,7 +267,6 @@ const Profile = ({ match }) => {
                             className="text-red-500"
                           />
                         </div>
-                       
                       </div>
                       <div className="contact-box">
                         <h4 className="title">Bank Details</h4>
@@ -311,8 +310,8 @@ const Profile = ({ match }) => {
                     </div>
                   </div>
                 </div>
-                <pre>{JSON.stringify(values, null, 2)}</pre>
-                <pre>{JSON.stringify(errors, null, 2)}</pre>
+                {/* <pre>{JSON.stringify(values, null, 2)}</pre>
+                <pre>{JSON.stringify(errors, null, 2)}</pre> */}
               </Form>
             )}
           </Formik>
