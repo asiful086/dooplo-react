@@ -58,7 +58,7 @@ const Profile = ({ match }) => {
       <section className="breadcrumb-area bc-contact">
         <img
           className="bc-img"
-          src="assets/images/breadcrumb/contact.png"
+          src="../../assets/images/breadcrumb/contact.png"
           alt="banner"
         />
         <div className="container">
@@ -90,7 +90,7 @@ const Profile = ({ match }) => {
       <section className="contact">
         <img
           className="left-img"
-          src="assets/images/contact-left.png"
+          src="../../assets/images/contact-left.png"
           alt="banner"
         />
         <div className="container">
