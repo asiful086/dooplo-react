@@ -197,12 +197,11 @@ const Profile = () => {
                           placeholder="Enter your Locality"
                         />
                         {/* state */}
-                        <div className="relative inline-block w-full text-gray-700 ">
+                        <div className="">
                           <Field
                             as="select"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 relative 
-                        bg-white rounded text-sm shadow outline-none focus:outline-none 
-                        focus:shadow-outline w-full border"
+                            // className="profileSelect rounded-pill px-2 py-1 w-100 my-1"
+                            className="profileSelect"
                             placeholder="Regular input"
                             name="state"
                           >
@@ -221,20 +220,11 @@ const Profile = () => {
                             className="text-red-500"
                           />
                         </div>
-                        {/* <AuthField
-                          required={true}
-                          name="state"
-                          type="text"
-                          id="profile-input-state"
-                          placeholder="Enter your state"
-                        /> */}
                         {/* city */}
-                        <div className="relative inline-block w-full text-gray-700 ">
+                        <div className="">
                           <Field
                             as="select"
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 relative 
-                        bg-white rounded text-sm shadow outline-none focus:outline-none 
-                        focus:shadow-outline w-full border"
+                            className="profileSelect"
                             placeholder="Regular input"
                             name="city"
                           >
