@@ -24,23 +24,24 @@ const Profile = () => {
         setState({
           ...state,
           states: all_state,
-          cities: [
-            {
-              city_id: "55",
-              state_id: "5",
-              city_name: "Araria",
-            },
-            {
-              city_id: "57",
-              state_id: "5",
-              city_name: "Banka",
-            },
-            {
-              city_id: "58",
-              state_id: "5",
-              city_name: "Begusarai",
-            },
-          ],
+          cities: res.data.data,
+          // cities: [
+          //   {
+          //     city_id: "55",
+          //     state_id: "5",
+          //     city_name: "Araria",
+          //   },
+          //   {
+          //     city_id: "57",
+          //     state_id: "5",
+          //     city_name: "Banka",
+          //   },
+          //   {
+          //     city_id: "58",
+          //     state_id: "5",
+          //     city_name: "Begusarai",
+          //   },
+          // ],
         });
       });
     });
