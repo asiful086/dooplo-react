@@ -178,7 +178,7 @@ const Header = () => {
               <div className="col-lg-12">
                 <nav className="navbar navbar-expand-lg navbar-light">
                   <Link className="navbar-brand" to="/">
-                    <img src="../../assets/images/logo.png" alt />
+                    <img src="../../assets/images/logo.png" alt="logo" />
                   </Link>
                   <button
                     className="navbar-toggler"

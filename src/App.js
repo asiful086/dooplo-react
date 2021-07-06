@@ -1,4 +1,4 @@
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./pages/About";
@@ -23,7 +23,7 @@ import Profile from "./pages/profile";
 const App = () => {
   let urlName = useLocation().pathname;
   let isExists = urlName.includes("0") || urlName.includes("2");
-  console.log(isExists);
+  // console.log(isExists);
 
   return (
     <>

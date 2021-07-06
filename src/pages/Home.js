@@ -39,78 +39,78 @@ const Home = () => {
             </div>
             <div className="col-lg-7">
               <div className="hero-img2 d-block d-md-none">
-                <img src="assets/images/heroarea.png" alt />
+                <img src="assets/images/heroarea.png" alt="random" />
               </div>
               <div className="hero-img d-none d-md-block">
                 <img
                   className="img-fluid full-image"
                   src="assets/images/heroarea.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape phone"
                   src="assets/images/h-shapes/phone.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape man"
                   src="assets/images/h-shapes/man222.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape ripple"
                   src="assets/images/h-shapes/ripple.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape ripple2"
                   src="assets/images/h-shapes/ripple1.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape bitcoin1"
                   src="assets/images/h-shapes/bitcoin1.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape bitcoin2"
                   src="assets/images/h-shapes/bitcoin2.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape shape-icon"
                   src="assets/images/h-shapes/shape.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape award-bg"
                   src="assets/images/h-shapes/award/bg.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape award"
                   src="assets/images/h-shapes/award/award.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape gift-bg"
                   src="assets/images/h-shapes/giftbox/bg.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape gift"
                   src="assets/images/h-shapes/giftbox/gift.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape shield-bg"
                   src="assets/images/h-shapes/shield/bg.png"
-                  alt
+                  alt="random"
                 />
                 <img
                   className="shape shield"
                   src="assets/images/h-shapes/shield/shield.png"
-                  alt
+                  alt="random"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon one">
-                            <img src="assets/images/feature/icon1.png" alt />
+                            <img src="assets/images/feature/icon1.png" alt="random" />
                           </div>
                           <div className="content">
                             <h4 className="title">Exclusive Offer</h4>
@@ -144,7 +144,7 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon two">
-                            <img src="assets/images/feature/icon2.png" alt />
+                            <img src="assets/images/feature/icon2.png" alt="random" />
                           </div>
                           <div className="content">
                             <h4 className="title">Provably Fair</h4>
@@ -157,7 +157,7 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon three">
-                            <img src="assets/images/feature/icon3.png" alt />
+                            <img src="assets/images/feature/icon3.png" alt="random" />
                           </div>
                           <div className="content">
                             <h4 className="title">24/7 Support</h4>
@@ -194,7 +194,7 @@ const Home = () => {
               <div className="game-slider">
                 <div className="item">
                   <div className="single-game">
-                    <img src="assets/images/game/icon1.png" alt />
+                    <img src="assets/images/game/icon1.png" alt="random" />
                     <a href="#" className="mybtn2">
                       PLay NoW !
                     </a>
@@ -202,7 +202,7 @@ const Home = () => {
                 </div>
                 <div className="item">
                   <div className="single-game">
-                    <img src="assets/images/game/icon2.png" alt />
+                    <img src="assets/images/game/icon2.png" alt="random" />
                     <a href="#" className="mybtn2">
                       PLay NoW !
                     </a>
@@ -210,7 +210,7 @@ const Home = () => {
                 </div>
                 <div className="item">
                   <div className="single-game">
-                    <img src="assets/images/game/icon3.png" alt />
+                    <img src="assets/images/game/icon3.png" alt="random" />
                     <a href="#" className="mybtn2">
                       PLay NoW !
                     </a>
@@ -218,7 +218,7 @@ const Home = () => {
                 </div>
                 <div className="item">
                   <div className="single-game">
-                    <img src="assets/images/game/icon2.png" alt />
+                    <img src="assets/images/game/icon2.png" alt="random" />
                     <a href="#" className="mybtn2">
                       PLay NoW !
                     </a>
@@ -235,17 +235,17 @@ const Home = () => {
         <img
           className="shape shape1"
           src="assets/images/people/shape1.png"
-          alt
+          alt="random"
         />
         <img
           className="shape shape2"
           src="assets/images/people/shape2.png"
-          alt
+          alt="random"
         />
         <img
           className="shape shape3"
           src="assets/images/people/shape3.png"
-          alt
+          alt="random"
         />
         <div className="container">
           <div className="row justify-content-center">
@@ -327,171 +327,171 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img src="assets/images/people/p5.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt />
+                            <img src="assets/images/people/p6.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
@@ -520,171 +520,171 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img src="assets/images/people/p5.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt />
+                            <img src="assets/images/people/p6.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
@@ -713,171 +713,171 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img src="assets/images/people/p5.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt />
+                            <img src="assets/images/people/p6.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon1.png" alt />
+                            <img src="assets/images/icon1.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img src="assets/images/people/p1.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon2.png" alt />
+                            <img src="assets/images/icon2.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img src="assets/images/people/p2.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon3.png" alt />
+                            <img src="assets/images/icon3.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img src="assets/images/people/p3.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon4.png" alt />
+                            <img src="assets/images/icon4.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img src="assets/images/people/p4.png" alt="random" />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                           <td>70%</td>
                           <td>Dice</td>
                           <td>
-                            <img src="assets/images/icon5.png" alt />
+                            <img src="assets/images/icon5.png" alt="random" />
                             0.00000051
                           </td>
                         </tr>
@@ -895,7 +895,7 @@ const Home = () => {
             <div className="row">
               <div className="col-lg-4">
                 <div className="single-fun">
-                  <img src="assets/images/funfact/icon1.png" alt />
+                  <img src="assets/images/funfact/icon1.png" alt="random" />
                   <div className="count-area">
                     <div className="count">93K</div>
                   </div>
@@ -904,7 +904,7 @@ const Home = () => {
               </div>
               <div className="col-lg-4">
                 <div className="single-fun">
-                  <img src="assets/images/funfact/icon2.png" alt />
+                  <img src="assets/images/funfact/icon2.png" alt="random" />
                   <div className="count-area">
                     <div className="count">99+</div>
                   </div>
@@ -913,7 +913,7 @@ const Home = () => {
               </div>
               <div className="col-lg-4">
                 <div className="single-fun">
-                  <img src="assets/images/funfact/icon3.png" alt />
+                  <img src="assets/images/funfact/icon3.png" alt="random" />
                   <div className="count-area">
                     <div className="count">70+</div>
                   </div>
@@ -948,7 +948,7 @@ const Home = () => {
             </div>
             <div className="col-lg-5">
               <div className="right-image">
-                <img src="assets/images/get-start.png" alt />
+                <img src="assets/images/get-start.png" alt="random" />
               </div>
             </div>
           </div>
@@ -985,7 +985,7 @@ const Home = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>
@@ -1004,7 +1004,7 @@ const Home = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>
@@ -1023,7 +1023,7 @@ const Home = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>

@@ -17,7 +17,10 @@ const Footer = () => {
                       </div>
                       <div className="col-lg-3 col-4 d-flex align-self-center">
                         <div className="icon">
-                          <img src="../../assets/images/mail-box.png" alt />
+                          <img
+                            src="../../assets/images/mail-box.png"
+                            alt="logo"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 col-8 d-flex align-self-center">

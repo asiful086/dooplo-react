@@ -94,7 +94,7 @@ const Profile = ({ match }) => {
           alt="banner"
         />
         <div className="container">
-          <div className="row justify-content-center">
+          {/* <div className="row justify-content-center">
             <div className="col-lg-8 col-md-10">
               <div className="section-heading">
                 <h5 className="subtitle">Contact Us</h5>
@@ -105,7 +105,7 @@ const Profile = ({ match }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           <Formik
             initialValues={{
               userid: match.params.id,
