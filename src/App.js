@@ -19,6 +19,7 @@ import Tournaments from "./pages/Tournaments";
 
 import "./App.css";
 import Profile from "./pages/profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   let urlName = useLocation().pathname;
@@ -44,7 +45,8 @@ const App = () => {
         <Route path="/terms-and-condition" component={TermsAndCondition} />
         <Route path="/condition-details" component={ConditionDetails} />
         <Route path="/404" component={Four0Four} />
-        <Route path="/profile/:id" component={Profile} />
+        <ProtectedRoute path="/profile/:id" component={Profile} />
+        {/* <Route path="/profile/:id" component={Profile} /> */}
       </Switch>
       {!isExists && <Footer />}
     </>
