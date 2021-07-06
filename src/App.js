@@ -23,8 +23,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   let urlName = useLocation().pathname;
-  let isExists = urlName.includes("0") || urlName.includes("2");
-  // console.log(isExists);
+  let isExists = urlName.includes("404");
 
   return (
     <>
