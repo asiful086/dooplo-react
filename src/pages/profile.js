@@ -1,13 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
 import AuthField from "../components/form/AuthField";
 import { useEffect } from "react";
 
 const Profile = ({ match }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [profileData, setProfileData] = useState("");
   const [loading, setLoading] = useState(false);

@@ -196,7 +196,7 @@ const Header = () => {
                     id="main_menu"
                   >
                     <ul className="navbar-nav ml-auto">
-                      <li className="nav-item dropdown">
+                      {/* <li className="nav-item dropdown">
                         <a
                           className="nav-link active dropdown-toggle"
                           href="#"
@@ -223,7 +223,17 @@ const Header = () => {
                             </a>
                           </li>
                         </ul>
+                      </li> */}
+
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">
+                          Home
+                          <div className="mr-hover-effect" />
+                        </Link>
                       </li>
+                      
+                      
+                      
                       {user && (
                         <li className="nav-item">
                           <Link
@@ -269,7 +279,7 @@ const Header = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" href="/affiliate">
+                            <Link className="dropdown-item" to="/affiliate">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Affiliate
