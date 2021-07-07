@@ -67,7 +67,7 @@ const Lottery = ({ match }) => {
     };
   });
 
-  console.log(state.contest);
+  // console.log(state.contest);
   return (
     <>
       {/* Breadcrumb Area Start */}
