@@ -214,13 +214,13 @@ const Lottery = ({ match }) => {
                 <div className="buy-tickets-box">
                   <div className="heading">
                     <h4 className="title">Buy Lottery Tickets</h4>
-                    <div className="right-area">
+                    {/* <div className="right-area">
                       <select>
                         <option value={1}>BTC</option>
                         <option value={1}>BTC</option>
                         <option value={1}>BTC</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="content">
                     <div className="top-area">
