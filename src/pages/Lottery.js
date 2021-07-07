@@ -225,7 +225,7 @@ const Lottery = ({ match }) => {
                   <div className="content">
                     <div className="top-area">
                       <div className="row">
-                        <div className="col-lg-3">
+                        {/* <div className="col-lg-3">
                           <div className="info-box">
                             <h4 className="title">BALANCE</h4>
                             <div className="number">
@@ -233,12 +233,18 @@ const Lottery = ({ match }) => {
                               0.0000
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="col-lg-3">
                           <div className="info-box">
                             <h4 className="title">1 TICKET COSTS</h4>
                             <div className="number">
-                              <i className="fab fa-bitcoin" />
+                              <img
+                                src="../../rupee.png"
+                                alt="rupee"
+                                width="16"
+                                className="mr-1 pb-1"
+                              />
+                              {/* <i className="fab fa-bitcoin" /> */}
                               0.0000
                             </div>
                           </div>
@@ -255,7 +261,13 @@ const Lottery = ({ match }) => {
                           <div className="info-box">
                             <h4 className="title">TOTAL COST</h4>
                             <div className="number">
-                              <i className="fab fa-bitcoin" />
+                              {/* <i className="fab fa-bitcoin" /> */}
+                              <img
+                                src="../../rupee.png"
+                                alt="rupee"
+                                width="16"
+                                className="mr-1 pb-1"
+                              />
                               0.0000
                             </div>
                           </div>
@@ -263,7 +275,7 @@ const Lottery = ({ match }) => {
                       </div>
                     </div>
                     <div className="game-numbers">
-                      <h4 className="title">GAME NUMBERS</h4>
+                      <h4 className="title">Tickets</h4>
                       <div className="number-box">
                         {/* <div className="auto-number">
                           <div className="top-content">
@@ -361,7 +373,7 @@ const Lottery = ({ match }) => {
       </section>
       {/* Lottery Staticstics  Area End */}
       {/* Latest Activities Area Start */}
-      
+
       {/* Latest Activities Area End */}
       {/* lottery video Area Start */}
       {/* lottery video Area End */}
@@ -478,7 +490,6 @@ const Lottery = ({ match }) => {
         </div>
       </section>
       {/* Recent Winners Area End */}
-     
     </>
   );
 };
