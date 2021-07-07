@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { logout } from "../store/action/userAction";
 
 import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 
-const Header = () => {
+const Header = ({ location }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
+
+  const activeLink = (url) => {
+    if (location.pathname === url) return true;
+    return false;
+  };
 
   return (
     <>
@@ -225,19 +230,22 @@ const Header = () => {
                         </ul>
                       </li> */}
 
-                      <li className="nav-item">
-                        <Link className="nav-link" to="/">
+                      <li className="nav-item ">
+                        <Link
+                          className={`nav-link ${activeLink("/") && "active"}`}
+                          to="/"
+                        >
                           Home
                           <div className="mr-hover-effect" />
                         </Link>
                       </li>
-                      
-                      
-                      
+
                       {user && (
                         <li className="nav-item">
                           <Link
-                            className="nav-link"
+                            className={`nav-link ${
+                              activeLink("/profile") && "active"
+                            }`}
                             to={`/profile/${user.userid}`}
                           >
                             Profile
@@ -247,13 +255,23 @@ const Header = () => {
                       )}
 
                       <li className="nav-item">
-                        <Link className="nav-link" to="/lottery">
+                        <Link
+                          className={`nav-link ${
+                            activeLink("/lottery") && "active"
+                          }`}
+                          to="/lottery"
+                        >
                           lottery
                           <div className="mr-hover-effect" />
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to="/tournaments">
+                        <Link
+                          className={`nav-link ${
+                            activeLink("/tournaments") && "active"
+                          }`}
+                          to="/tournaments"
+                        >
                           tournaments
                           <div className="mr-hover-effect" />
                         </Link>
@@ -350,7 +368,12 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to="/contact">
+                        <Link
+                          className={`nav-link ${
+                            activeLink("/contact") && "active"
+                          }`}
+                          to="/contact"
+                        >
                           Contact
                           <div className="mr-hover-effect" />
                         </Link>
@@ -391,4 +414,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
