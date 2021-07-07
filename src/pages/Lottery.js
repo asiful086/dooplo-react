@@ -6,15 +6,13 @@ const Lottery = ({ match }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  
-  
   // const [seconds, setSeconds] = useState(0);
 
   const [state, setState] = useState({
     errorMessage: "",
     successMessage: "",
     contest: "",
-    tickets:[]
+    tickets: [],
   });
 
   useEffect(() => {
@@ -33,11 +31,9 @@ const Lottery = ({ match }) => {
         setHours(drCSecond[0] - c_seconds[0]);
         setMinutes(drCSecond[1] - c_seconds[1]);
         setSeconds(drCSecond[2] - c_seconds[2]);
-        
       });
   }, []);
 
-  
   // for timer
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -269,7 +265,7 @@ const Lottery = ({ match }) => {
                     <div className="game-numbers">
                       <h4 className="title">GAME NUMBERS</h4>
                       <div className="number-box">
-                        <div className="auto-number">
+                        {/* <div className="auto-number">
                           <div className="top-content">
                             <input type="radio" id="auto-num" name="auto-num" />
                             <label htmlFor="auto-num">
@@ -279,7 +275,7 @@ const Lottery = ({ match }) => {
                               </span>
                             </label>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="manual-number">
                           <div className="top-content">
                             <input
@@ -288,8 +284,8 @@ const Lottery = ({ match }) => {
                               name="auto-num"
                             />
                             <label htmlFor="manual-num">
-                              Manual Select
-                              <span>Pick 5 numbers manually</span>
+                              Pick your ticket
+                              {/* <span>Pick 5 numbers manually</span> */}
                             </label>
                           </div>
                           <div className="main-content">
@@ -352,7 +348,7 @@ const Lottery = ({ match }) => {
                     <div className="row">
                       <div className="col-lg-12 text-center">
                         <a href="#" className="mybtn1">
-                          Buy ticket
+                          Add to cart
                         </a>
                       </div>
                     </div>
