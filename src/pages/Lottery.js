@@ -6,13 +6,12 @@ const Lottery = ({ match }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  // const [seconds, setSeconds] = useState(0);
+  const [tickets, setTickets] = useState([]);
 
   const [state, setState] = useState({
     errorMessage: "",
     successMessage: "",
     contest: "",
-    tickets: [],
   });
 
   useEffect(() => {
@@ -24,6 +23,7 @@ const Lottery = ({ match }) => {
           ...state,
           contest: res.data.data[0],
         });
+        let resContest = res.data.data[0];
         let c_seconds = res.data.data[0].entry_start_time.split(":");
 
         let drCSecond = res.data.data[0].draw_time.split(":");
@@ -31,6 +31,16 @@ const Lottery = ({ match }) => {
         setHours(drCSecond[0] - c_seconds[0]);
         setMinutes(drCSecond[1] - c_seconds[1]);
         setSeconds(drCSecond[2] - c_seconds[2]);
+        // console.log("from contest", resContest);
+        axios
+          .get(
+            `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
+          )
+          .then((res) => {
+            // console.log("from ticket", res.data.data);
+
+            // setTickets(res.data.data[0]);
+          });
       });
   }, []);
 
@@ -289,17 +299,6 @@ const Lottery = ({ match }) => {
                           </div>
                         </div> */}
                         <div className="manual-number">
-                          <div className="top-content">
-                            <input
-                              type="radio"
-                              id="manual-num"
-                              name="auto-num"
-                            />
-                            <label htmlFor="manual-num">
-                              Pick your ticket
-                              {/* <span>Pick 5 numbers manually</span> */}
-                            </label>
-                          </div>
                           <div className="main-content">
                             <ul className="number-list">
                               <li>1</li>
