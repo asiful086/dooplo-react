@@ -1,17 +1,84 @@
-const Lottery = () => {
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const Lottery = ({ match }) => {
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  const [state, setState] = useState({
+    errorMessage: "",
+    successMessage: "",
+    contest: "",
+  });
+
+  useEffect(() => {
+    // fetching contest
+    axios
+      .get(`https://easylifeyes.com/lottery/get_contests/${match.params.id}`)
+      .then((res) => {
+        setState({
+          ...state,
+          contest: res.data.data[0],
+        });
+        let c_seconds = res.data.data[0].entry_start_time.split(":");
+
+        let drCSecond = res.data.data[0].draw_time.split(":");
+
+        setHours(drCSecond[0] - c_seconds[0]);
+        setMinutes(drCSecond[1] - c_seconds[1]);
+        setSeconds(drCSecond[2] - c_seconds[2]);
+      });
+  }, []);
+
+  
+  // for timer
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes > 0) {
+          setMinutes(minutes - 1);
+          setSeconds(59);
+        }
+        if (minutes === 0) {
+          if (hours > 0) {
+            setHours(hours - 1);
+            setMinutes(59);
+            setSeconds(59);
+          } else {
+            clearInterval(myInterval);
+          }
+        }
+        // if (minutes === 0) {
+        //   clearInterval(myInterval);
+        // } else {
+        //   setMinutes(minutes - 1);
+        //   setSeconds(59);
+        // }
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
+
+  console.log(state.contest);
   return (
     <>
       {/* Breadcrumb Area Start */}
       <section className="breadcrumb-area bc-lottery">
         <img
           className="bc-img"
-          src="assets/images/breadcrumb/lottery.png"
-          alt
+          src="../../assets/images/breadcrumb/lottery.png"
+          alt="random"
         />
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <h4 className="title">Lottery</h4>
+              <h4 className="title">Contest</h4>
               <ul className="breadcrumb-list">
                 <li>
                   <a href="index.html">
@@ -25,7 +92,7 @@ const Lottery = () => {
                   </span>
                 </li>
                 <li>
-                  <a href="lottery.html">Lottery</a>
+                  <a href="lottery.html">Contest</a>
                 </li>
               </ul>
             </div>
@@ -42,13 +109,16 @@ const Lottery = () => {
                 <div className="single-staticstics">
                   <div className="left">
                     <div className="icon">
-                      <img src="assets/images/lottery/st1.png" alt />
+                      <img
+                        src="../../assets/images/lottery/st1.png"
+                        alt="random"
+                      />
                     </div>
                   </div>
                   <div className="right">
                     <h4 className="title">Lottery Jackpot</h4>
                     <div className="count">
-                      <img src="assets/images/icon1.png" alt />
+                      <img src="../../assets/images/icon1.png" alt="random" />
                       <span>0.416250</span>
                     </div>
                   </div>
@@ -58,13 +128,19 @@ const Lottery = () => {
                 <div className="single-staticstics">
                   <div className="left">
                     <div className="icon">
-                      <img src="assets/images/lottery/st2.png" alt />
+                      <img
+                        src="../../assets/images/lottery/st2.png"
+                        alt="random"
+                      />
                     </div>
                   </div>
                   <div className="right">
                     <h4 className="title">Purchased Tickets</h4>
                     <div className="count">
-                      <img src="assets/images/tikit-icon.png" alt />
+                      <img
+                        src="../../assets/images/tikit-icon.png"
+                        alt="random"
+                      />
                       <span>120</span>
                     </div>
                   </div>
@@ -74,13 +150,19 @@ const Lottery = () => {
                 <div className="single-staticstics">
                   <div className="left">
                     <div className="icon">
-                      <img src="assets/images/lottery/st2.png" alt />
+                      <img
+                        src="../../assets/images/lottery/st2.png"
+                        alt="random"
+                      />
                     </div>
                   </div>
                   <div className="right">
                     <h4 className="title">My Tickets</h4>
                     <div className="count">
-                      <img src="assets/images/tikit-icon.png" alt />
+                      <img
+                        src="../../assets/images/tikit-icon.png"
+                        alt="random"
+                      />
                       <span>02</span>
                     </div>
                   </div>
@@ -95,7 +177,7 @@ const Lottery = () => {
               <div className="col-lg-8 col-md-10">
                 <div className="section-heading">
                   <h5 className="subtitle">Try to check out our</h5>
-                  <h2 className="title">Daily Lottery</h2>
+                  <h2 className="title">{state.contest.contest}</h2>
                   <p className="text">
                     We update our site regularly; more and more winners are
                     added every day! To locate the most recent winner's
@@ -109,7 +191,13 @@ const Lottery = () => {
                 <div className="draw-time">
                   <h5 className="subtitle">Lottery Draw Starts In:</h5>
                   <div className="draw-counter">
-                    <div data-countdown="2021/12/15" />
+                    {/* <div data-countdown="2021/12/15" /> */}
+                    {/* <div data-countdown={state.contest.entry_start_time} /> */}
+                    <div>
+                      {hours < 10 ? `0${hours}` : hours}:
+                      {minutes < 10 ? `0${minutes}` : minutes}:
+                      {seconds < 10 ? `0${seconds}` : seconds}
+                    </div>
                   </div>
                   <p className="text">To meet Today's challenges</p>
                 </div>
@@ -274,18 +362,18 @@ const Lottery = () => {
       <section className="activities">
         <img
           className="shape shape1"
-          src="assets/images/people/shape1.png"
-          alt
+          src="../../assets/images/people/shape1.png"
+          alt="random"
         />
         <img
           className="shape shape2"
-          src="assets/images/people/shape2.png"
-          alt
+          src="../../assets/images/people/shape2.png"
+          alt="random"
         />
         <img
           className="shape shape3"
-          src="assets/images/people/shape3.png"
-          alt
+          src="../../assets/images/people/shape3.png"
+          alt="random"
         />
         <div className="container">
           <div className="row justify-content-center">
@@ -364,7 +452,10 @@ const Lottery = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -380,7 +471,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -396,7 +490,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -412,7 +509,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -428,7 +528,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -444,7 +547,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -460,7 +566,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -476,7 +585,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -492,7 +604,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -508,7 +623,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -544,7 +662,10 @@ const Lottery = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -560,7 +681,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -576,7 +700,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -592,7 +719,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -608,7 +738,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -624,7 +757,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -640,7 +776,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -656,7 +795,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -672,7 +814,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -688,7 +833,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -724,7 +872,10 @@ const Lottery = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -740,7 +891,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -756,7 +910,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -772,7 +929,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -788,7 +948,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -804,7 +967,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt />
+                            <img
+                              src="../../assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -820,7 +986,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt />
+                            <img
+                              src="../../assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -836,7 +1005,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt />
+                            <img
+                              src="../../assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -852,7 +1024,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt />
+                            <img
+                              src="../../assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -868,7 +1043,10 @@ const Lottery = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt />
+                            <img
+                              src="../../assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>
@@ -894,8 +1072,8 @@ const Lottery = () => {
         <div className="how-it-work">
           <img
             className="bg-shape"
-            src="assets/images/howitwork/bg-shape.png"
-            alt
+            src="../../assets/images/howitwork/bg-shape.png"
+            alt="random"
           />
           <div className="container">
             <div className="row justify-content-center">
@@ -914,7 +1092,10 @@ const Lottery = () => {
             <div className="row">
               <div className="col-lg-4">
                 <div className="single-work">
-                  <img src="assets/images/howitwork/ic1.png" alt />
+                  <img
+                    src="../../assets/images/howitwork/ic1.png"
+                    alt="random"
+                  />
                   <h4 className="title">Choose</h4>
                   <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -924,7 +1105,10 @@ const Lottery = () => {
               </div>
               <div className="col-lg-4">
                 <div className="single-work">
-                  <img src="assets/images/howitwork/ic2.png" alt />
+                  <img
+                    src="../../assets/images/howitwork/ic2.png"
+                    alt="random"
+                  />
                   <h4 className="title">BUY</h4>
                   <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -934,7 +1118,10 @@ const Lottery = () => {
               </div>
               <div className="col-lg-4">
                 <div className="single-work">
-                  <img src="assets/images/howitwork/ic3.png" alt />
+                  <img
+                    src="../../assets/images/howitwork/ic3.png"
+                    alt="random"
+                  />
                   <h4 className="title">WIN</h4>
                   <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -955,7 +1142,10 @@ const Lottery = () => {
             <div className="col-lg-10">
               <div className="video-box">
                 <a href="#" className="video-play-btn video-icon mfp-iframe">
-                  <img src="assets/images/play-icon-red.png" alt />
+                  <img
+                    src="../../assets/images/play-icon-red.png"
+                    alt="random"
+                  />
                 </a>
               </div>
             </div>
@@ -968,7 +1158,7 @@ const Lottery = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
-              <img src="assets/images/question-left.png" alt />
+              <img src="../../assets/images/question-left.png" alt="random" />
             </div>
             <div className="col-lg-6">
               <div className="section-heading">
@@ -1022,7 +1212,7 @@ const Lottery = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="../../assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>
@@ -1041,7 +1231,7 @@ const Lottery = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="../../assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>
@@ -1060,7 +1250,7 @@ const Lottery = () => {
                 <div className="bottom-area">
                   <div className="left">0.099 ETH</div>
                   <div className="right">
-                    <img src="assets/images/icon2.png" alt />
+                    <img src="../../assets/images/icon2.png" alt="random" />
                   </div>
                 </div>
               </div>
@@ -1093,7 +1283,10 @@ const Lottery = () => {
                       </div>
                       <div className="col-lg-3 col-4 d-flex align-self-center">
                         <div className="icon">
-                          <img src="assets/images/mail-box.png" alt />
+                          <img
+                            src="../../assets/images/mail-box.png"
+                            alt="random"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 col-8 d-flex align-self-center">

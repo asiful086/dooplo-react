@@ -20,7 +20,6 @@ const Home = () => {
       });
     });
   }, []);
-  console.log(state.contests);
   return (
     <>
       {/* preloader area start */}
@@ -237,9 +236,12 @@ const Home = () => {
                               </div>
                               <div className="content">
                                 <h4 className="title">{contest.contest}</h4>
-                                <a href="#" className="contestBtn  position-absolute text-white">
+                                <Link
+                                  to={`/contest/${contest.id}`}
+                                  className="contestBtn  position-absolute text-white"
+                                >
                                   PLay NoW !
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>

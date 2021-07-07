@@ -45,6 +45,7 @@ const App = () => {
         <Route path="/condition-details" component={ConditionDetails} />
         <Route path="/404" component={Four0Four} />
         <ProtectedRoute path="/profile/:id" component={Profile} />
+        <ProtectedRoute path="/contest/:id" component={Lottery} />
         {/* <Route path="/profile/:id" component={Profile} /> */}
       </Switch>
       {!isExists && <Footer />}
