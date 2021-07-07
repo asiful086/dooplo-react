@@ -6,10 +6,15 @@ const Lottery = ({ match }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  
+  
+  // const [seconds, setSeconds] = useState(0);
+
   const [state, setState] = useState({
     errorMessage: "",
     successMessage: "",
     contest: "",
+    tickets:[]
   });
 
   useEffect(() => {
@@ -28,6 +33,7 @@ const Lottery = ({ match }) => {
         setHours(drCSecond[0] - c_seconds[0]);
         setMinutes(drCSecond[1] - c_seconds[1]);
         setSeconds(drCSecond[2] - c_seconds[2]);
+        
       });
   }, []);
 
