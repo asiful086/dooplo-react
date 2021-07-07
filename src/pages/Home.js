@@ -209,9 +209,8 @@ const Home = () => {
                   <h5 className="subtitle">Try to check out our</h5>
                   <h2 className="title">featured contests</h2>
                   <p className="text">
-                    Check out our latest featured game! To meet today's
-                    challenges &amp; earn cryptocurrency. Top 10 players receive
-                    prizes every hour!
+                    Check out our latest contest! To meet today's challenges.
+                    Receive prizes every hour!
                   </p>
                 </div>
               </div>
@@ -314,7 +313,7 @@ const Home = () => {
       </section>
       {/* Featured Game Area	End */}
       {/* Latest Activities Area Start */}
-     
+
       {/* Latest Activities Area End */}
       {/* Get Start Area Start */}
       <section className="get-start">
