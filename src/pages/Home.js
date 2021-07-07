@@ -1,8 +1,26 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [state, setState] = useState({
+    errorMessage: "",
+    successMessage: "",
+    contests: [],
+  });
+
+  useEffect(() => {
+    // fetching contest
+    axios.get("https://easylifeyes.com/lottery/get_contests").then((res) => {
+      setState({
+        ...state,
+        contests: res.data.data,
+      });
+    });
+  }, []);
+  console.log(state.contests);
   return (
     <>
       {/* preloader area start */}
@@ -14,7 +32,7 @@ const Home = () => {
       </div> */}
       {/* preloader area end */}
       {/* Header Area Start  */}
-    
+
       {/* Header Area End  */}
       {/* Hero Area Start */}
       <div className="hero-area">
@@ -131,7 +149,10 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon one">
-                            <img src="assets/images/feature/icon1.png" alt="random" />
+                            <img
+                              src="assets/images/feature/icon1.png"
+                              alt="random"
+                            />
                           </div>
                           <div className="content">
                             <h4 className="title">Exclusive Offer</h4>
@@ -144,7 +165,10 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon two">
-                            <img src="assets/images/feature/icon2.png" alt="random" />
+                            <img
+                              src="assets/images/feature/icon2.png"
+                              alt="random"
+                            />
                           </div>
                           <div className="content">
                             <h4 className="title">Provably Fair</h4>
@@ -157,7 +181,10 @@ const Home = () => {
                       <div className="col-lg-4 col-md-6">
                         <div className="single-feature">
                           <div className="icon three">
-                            <img src="assets/images/feature/icon3.png" alt="random" />
+                            <img
+                              src="assets/images/feature/icon3.png"
+                              alt="random"
+                            />
                           </div>
                           <div className="content">
                             <h4 className="title">24/7 Support</h4>
@@ -174,8 +201,58 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* this is another section for design */}
+        <div className="features mt-5">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8 col-md-10">
+                <div className="section-heading">
+                  <h5 className="subtitle">Try to check out our</h5>
+                  <h2 className="title">featured games</h2>
+                  <p className="text">
+                    Check out our latest featured game! To meet today's
+                    challenges &amp; earn cryptocurrency. Top 10 players receive
+                    prizes every hour!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="feature-box">
+                  <div className="feature-box-inner">
+                    <div className="row">
+                      {state.contests &&
+                        state.contests.map((contest) => (
+                          <div
+                            key={contest.id}
+                            className="col-lg-4 col-md-6 mb-5"
+                          >
+                            <div className="single-feature position-relative">
+                              <div className="icon one">
+                                <img
+                                  src="assets/images/feature/icon1.png"
+                                  alt="random"
+                                />
+                              </div>
+                              <div className="content">
+                                <h4 className="title">{contest.contest}</h4>
+                                <a href="#" className="contestBtn  position-absolute text-white">
+                                  PLay NoW !
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Features Area End */}
-        <div className="container">
+        {/* <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 col-md-10">
               <div className="section-heading">
@@ -190,44 +267,48 @@ const Home = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-12">
-              <div className="game-slider">
-                <div className="item">
-                  <div className="single-game">
-                    <img src="assets/images/game/icon1.png" alt="random" />
-                    <a href="#" className="mybtn2">
-                      PLay NoW !
-                    </a>
+            {state.contests &&
+              state.contests.map((contest) => (
+                <div className="col-lg-4 col-md-6">
+                  <div className="single-feature">
+                    <div className="icon one">
+                      <img src="assets/images/feature/icon1.png" alt="random" />
+                    </div>
+                    <div className="content">
+                      <h4 className="title">Exclusive Offer</h4>
+                      <a href="#" className="link">
+                        read more <i className="fas fa-arrow-right" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <div className="item">
-                  <div className="single-game">
-                    <img src="assets/images/game/icon2.png" alt="random" />
-                    <a href="#" className="mybtn2">
-                      PLay NoW !
-                    </a>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="single-game">
-                    <img src="assets/images/game/icon3.png" alt="random" />
-                    <a href="#" className="mybtn2">
-                      PLay NoW !
-                    </a>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="single-game">
-                    <img src="assets/images/game/icon2.png" alt="random" />
-                    <a href="#" className="mybtn2">
-                      PLay NoW !
-                    </a>
-                  </div>
-                </div>
+              ))}
+            <div className="item">
+              <div className="single-game">
+                <img src="assets/images/game/icon2.png" alt="random" />
+                <a href="#" className="mybtn2">
+                  PLay NoW !
+                </a>
+              </div>
+            </div>
+            <div className="item">
+              <div className="single-game">
+                <img src="assets/images/game/icon3.png" alt="random" />
+                <a href="#" className="mybtn2">
+                  PLay NoW !
+                </a>
+              </div>
+            </div>
+            <div className="item">
+              <div className="single-game">
+                <img src="assets/images/game/icon2.png" alt="random" />
+                <a href="#" className="mybtn2">
+                  PLay NoW !
+                </a>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       {/* Featured Game Area	End */}
       {/* Latest Activities Area Start */}
@@ -327,7 +408,10 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -344,7 +428,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -361,7 +448,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -378,7 +468,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -395,7 +488,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt="random" />
+                            <img
+                              src="assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -412,7 +508,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt="random" />
+                            <img
+                              src="assets/images/people/p6.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -429,7 +528,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -446,7 +548,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -463,7 +568,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -480,7 +588,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -520,7 +631,10 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -537,7 +651,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -554,7 +671,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -571,7 +691,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -588,7 +711,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt="random" />
+                            <img
+                              src="assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -605,7 +731,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt="random" />
+                            <img
+                              src="assets/images/people/p6.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -622,7 +751,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -639,7 +771,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -656,7 +791,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -673,7 +811,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -713,7 +854,10 @@ const Home = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -730,7 +874,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -747,7 +894,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -764,7 +914,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -781,7 +934,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p5.png" alt="random" />
+                            <img
+                              src="assets/images/people/p5.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -798,7 +954,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p6.png" alt="random" />
+                            <img
+                              src="assets/images/people/p6.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -815,7 +974,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p1.png" alt="random" />
+                            <img
+                              src="assets/images/people/p1.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -832,7 +994,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p2.png" alt="random" />
+                            <img
+                              src="assets/images/people/p2.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -849,7 +1014,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p3.png" alt="random" />
+                            <img
+                              src="assets/images/people/p3.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -866,7 +1034,10 @@ const Home = () => {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/images/people/p4.png" alt="random" />
+                            <img
+                              src="assets/images/people/p4.png"
+                              alt="random"
+                            />
                             Tom Bass
                           </td>
                           <td>b799b8724b</td>
@@ -1040,7 +1211,7 @@ const Home = () => {
       </section>
       {/* Recent Winners Area End */}
       {/* Footer Area Start */}
-      
+
       {/* Footer Area End */}
       {/* Back to Top Start */}
 

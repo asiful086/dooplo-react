@@ -50,11 +50,41 @@
   /* background-color: rgba(161, 174, 212, 0.2);
   color: white; */
   margin-top: 8px;
-    width: 100%;
-    height: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    background: #273261;
-    padding: 0px 30px;
-    color: #A1AED4;
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  background: #273261;
+  padding: 0px 30px;
+  color: #a1aed4;
+}
+
+.contestBtn {
+  /* top: 100%; */
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  width: 190px;
+  display: inline-block;
+  color: #fff;
+  border: 0px;
+  border-radius: 50px;
+  cursor: pointer;
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#1c294e),
+    to(#1c294e)
+  );
+  /* transition: all 0.5s; */
+}
+.contestBtn:hover {
+  transition: all 1s;
+  background: #dc3545;
 }
