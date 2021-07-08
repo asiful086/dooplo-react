@@ -88,3 +88,13 @@
   transition: all 1s;
   background: #dc3545;
 }
+
+.contestListSelected {
+  background-image: -webkit-linear-gradient(
+    26deg,
+    #fd2904 9%,
+    #ec3312 39%,
+    #864337 100%
+  ) !important;
+  color: white !important;
+}

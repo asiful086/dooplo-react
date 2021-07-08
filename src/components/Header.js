@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { logout } from "../store/action/userAction";
@@ -8,6 +10,22 @@ import RegisterModal from "./modal/RegisterModal";
 const Header = ({ location }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
+
+  const [state, setState] = useState({
+    errorMessage: "",
+    successMessage: "",
+    contests: [],
+  });
+
+  useEffect(() => {
+    // fetching contest
+    axios.get("https://easylifeyes.com/lottery/get_contests").then((res) => {
+      setState({
+        ...state,
+        contests: res.data.data,
+      });
+    });
+  }, []);
 
   const activeLink = (url) => {
     if (location.pathname === url) return true;
@@ -254,7 +272,7 @@ const Header = ({ location }) => {
                         </li>
                       )}
 
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <Link
                           className={`nav-link ${
                             activeLink("/lottery") && "active"
@@ -275,28 +293,35 @@ const Header = ({ location }) => {
                           tournaments
                           <div className="mr-hover-effect" />
                         </Link>
-                      </li>
+                      </li> */}
                       <li className="nav-item dropdown">
-                        <a
+                        <Link
                           className="nav-link dropdown-toggle"
-                          href="#"
+                          to="#"
                           role="button"
                           data-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          Pages
+                          Contests
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu">
-                          <li>
-                            <Link className="dropdown-item" to="/about">
-                              {" "}
-                              <i className="fa fa-angle-double-right" />
-                              About
-                            </Link>
-                          </li>
-                          <li>
+                          {state.contests &&
+                            state.contests.map((contest) => (
+                              <li key={contest.id}>
+                                <Link
+                                  className="dropdown-item"
+                                  to={`/contest/${contest.id}`}
+                                >
+                                  {" "}
+                                  <i className="fa fa-angle-double-right" />
+                                  {contest.contest}
+                                </Link>
+                              </li>
+                            ))}
+
+                          {/* <li>
                             <Link className="dropdown-item" to="/affiliate">
                               {" "}
                               <i className="fa fa-angle-double-right" />
@@ -364,7 +389,7 @@ const Header = ({ location }) => {
                               <i className="fa fa-angle-double-right" />
                               404
                             </Link>
-                          </li>
+                          </li> */}
                         </ul>
                       </li>
                       <li className="nav-item">

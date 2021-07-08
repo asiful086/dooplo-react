@@ -6,7 +6,8 @@ const Lottery = ({ match }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const [tickets, setTickets] = useState([]);
+  const [ticket, setTicket] = useState([]);
+  const [selectedTickets, setSelectedTickets] = useState([]);
 
   const [state, setState] = useState({
     errorMessage: "",
@@ -37,9 +38,9 @@ const Lottery = ({ match }) => {
             `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
           )
           .then((res) => {
-            // console.log("from ticket", res.data.data);
+            console.log("from ticket", res.data.data);
 
-            // setTickets(res.data.data[0]);
+            setTicket(res.data.data[0]);
           });
       });
   }, []);
@@ -77,7 +78,7 @@ const Lottery = ({ match }) => {
     };
   });
 
-  // console.log(state.contest);
+  console.log("From selected tickets", selectedTickets);
   return (
     <>
       {/* Breadcrumb Area Start */}
@@ -224,26 +225,10 @@ const Lottery = ({ match }) => {
                 <div className="buy-tickets-box">
                   <div className="heading">
                     <h4 className="title">Buy Lottery Tickets</h4>
-                    {/* <div className="right-area">
-                      <select>
-                        <option value={1}>BTC</option>
-                        <option value={1}>BTC</option>
-                        <option value={1}>BTC</option>
-                      </select>
-                    </div> */}
                   </div>
                   <div className="content">
                     <div className="top-area">
                       <div className="row">
-                        {/* <div className="col-lg-3">
-                          <div className="info-box">
-                            <h4 className="title">BALANCE</h4>
-                            <div className="number">
-                              <i className="fab fa-bitcoin" />
-                              0.0000
-                            </div>
-                          </div>
-                        </div> */}
                         <div className="col-lg-4">
                           <div className="info-box">
                             <h4 className="title">1 TICKET COSTS</h4>
@@ -287,70 +272,37 @@ const Lottery = ({ match }) => {
                     <div className="game-numbers">
                       <h4 className="title">Tickets</h4>
                       <div className="number-box">
-                        {/* <div className="auto-number">
-                          <div className="top-content">
-                            <input type="radio" id="auto-num" name="auto-num" />
-                            <label htmlFor="auto-num">
-                              Auto Generated
-                              <span>
-                                Random numbers will be generated automatically
-                              </span>
-                            </label>
-                          </div>
-                        </div> */}
                         <div className="manual-number">
                           <div className="main-content">
                             <ul className="number-list">
-                              <li>1</li>
-                              <li>2</li>
-                              <li>3</li>
-                              <li>4</li>
-                              <li>5</li>
-                              <li>6</li>
-                              <li>7</li>
-                              <li>8</li>
-                              <li className="active">9</li>
-                              <li>10</li>
-                              <li>11</li>
-                              <li>12</li>
-                              <li className="active">13</li>
-                              <li>14</li>
-                              <li>15</li>
-                              <li>16</li>
-                              <li>17</li>
-                              <li>18</li>
-                              <li>19</li>
-                              <li className="active">20</li>
-                              <li>21</li>
-                              <li className="active">22</li>
-                              <li>23</li>
-                              <li>24</li>
-                              <li>25</li>
-                              <li>26</li>
-                              <li>27</li>
-                              <li>28</li>
-                              <li className="active">29</li>
-                              <li>30</li>
-                              <li>31</li>
-                              <li>32</li>
-                              <li>33</li>
-                              <li>34</li>
-                              <li>35</li>
-                              <li>36</li>
-                              <li>37</li>
-                              <li>38</li>
-                              <li>39</li>
-                              <li>40</li>
-                              <li>41</li>
-                              <li>42</li>
-                              <li>43</li>
-                              <li>44</li>
-                              <li>45</li>
-                              <li>46</li>
-                              <li>47</li>
-                              <li>48</li>
-                              <li>49</li>
-                              <li>50</li>
+                              {ticket.tickets &&
+                                ticket.tickets.map((ticket, i) => {
+                                  let exist = selectedTickets.includes(ticket);
+                                  return (
+                                    <li
+                                      className={`${
+                                        exist && "contestListSelected"
+                                      }`}
+                                      key={i}
+                                      onClick={() => {
+                                        if (!exist) {
+                                          setSelectedTickets([
+                                            ...selectedTickets,
+                                            ticket,
+                                          ]);
+                                        } else {
+                                          setSelectedTickets(
+                                            selectedTickets.filter(
+                                              (tket) => tket !== ticket
+                                            )
+                                          );
+                                        }
+                                      }}
+                                    >
+                                      {ticket}
+                                    </li>
+                                  );
+                                })}
                             </ul>
                           </div>
                         </div>
@@ -358,9 +310,9 @@ const Lottery = ({ match }) => {
                     </div>
                     <div className="row">
                       <div className="col-lg-12 text-center">
-                        <a href="#" className="mybtn1">
+                        <button type="button" className="mybtn1">
                           Add to cart
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
