@@ -281,7 +281,12 @@ const Lottery = ({ match }) => {
                                 width="16"
                                 className="mr-1 pb-1"
                               />
-                              0.0000
+                              {selectedTickets.filter((tket) => tket < 10)
+                                .length *
+                                state.contest.akhar_ticket_price +
+                                selectedTickets.filter((tket) => tket > 9)
+                                  .length *
+                                  state.contest.digit_ticket_price}
                             </div>
                           </div>
                         </div>
