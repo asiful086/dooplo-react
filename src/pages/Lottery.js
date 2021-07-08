@@ -240,9 +240,9 @@ const Lottery = ({ match }) => {
                                 className="mr-1 pb-1"
                               />
                               {/* <i className="fab fa-bitcoin" /> */}
-                              AKHAR =
-                              {selectedTickets.filter((tket) => tket < 10)
-                                .length * state.contest.akhar_ticket_price}
+                              AKHAR = {state.contest.akhar_ticket_price}
+                              {/* {selectedTickets.filter((tket) => tket < 10)
+                                .length * state.contest.akhar_ticket_price} */}
                             </div>
                             <div className="number">
                               <img
@@ -252,9 +252,10 @@ const Lottery = ({ match }) => {
                                 className="mr-1 pb-1"
                               />
                               {/* <i className="fab fa-bitcoin" /> */}
-                              TWO DIGIT NUMBER =
-                              {selectedTickets.filter((tket) => tket > 9)
-                                .length * state.contest.digit_ticket_price}
+                              TWO DIGIT NUMBER ={" "}
+                              {state.contest.digit_ticket_price}
+                              {/* {selectedTickets.filter((tket) => tket > 9)
+                                .length * state.contest.digit_ticket_price} */}
                             </div>
                           </div>
                         </div>
