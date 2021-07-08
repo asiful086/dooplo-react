@@ -92,9 +92,9 @@
 .contestListSelected {
   background-image: -webkit-linear-gradient(
     26deg,
-    #fd2904 9%,
-    #ec3312 39%,
-    #864337 100%
+    yellow 9%,
+    rgb(196, 196, 36) 39%,
+    rgb(143, 143, 64) 100%
   ) !important;
   color: white !important;
 }
