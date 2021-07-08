@@ -248,7 +248,10 @@ const Lottery = ({ match }) => {
                           <div className="info-box">
                             <h4 className="title">QUANTITY</h4>
                             <div className="number">
-                              <input type="number" defaultValue={1} />
+                              <input
+                                type="number"
+                                value={selectedTickets.length}
+                              />
                             </div>
                           </div>
                         </div>

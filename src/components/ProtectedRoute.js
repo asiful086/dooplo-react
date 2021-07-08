@@ -11,6 +11,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
             return <Component {...props} />;
           } else {
             return <Redirect to="/404" />;
+            //var modalToggle = document.getElementById("login").classList.add("show"); // relatedTarget
           }
         }}
       />
