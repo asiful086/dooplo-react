@@ -5,7 +5,6 @@ const Lottery = ({ match }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-
   const [ticket, setTicket] = useState([]);
   const [selectedTickets, setSelectedTickets] = useState([]);
 
@@ -77,8 +76,9 @@ const Lottery = ({ match }) => {
       clearInterval(myInterval);
     };
   });
-
+  // akhar_ticket_price
   console.log("From selected tickets", selectedTickets);
+  console.log("From contest", state.contest);
   return (
     <>
       {/* Breadcrumb Area Start */}
@@ -240,7 +240,21 @@ const Lottery = ({ match }) => {
                                 className="mr-1 pb-1"
                               />
                               {/* <i className="fab fa-bitcoin" /> */}
-                              0.0000
+                              AKHAR =
+                              {selectedTickets.filter((tket) => tket < 10)
+                                .length * state.contest.akhar_ticket_price}
+                            </div>
+                            <div className="number">
+                              <img
+                                src="../../rupee.png"
+                                alt="rupee"
+                                width="16"
+                                className="mr-1 pb-1"
+                              />
+                              {/* <i className="fab fa-bitcoin" /> */}
+                              TWO DIGIT NUMBER =
+                              {selectedTickets.filter((tket) => tket > 9)
+                                .length * state.contest.digit_ticket_price}
                             </div>
                           </div>
                         </div>
