@@ -11,6 +11,7 @@ const Lottery = ({ match }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [ticket, setTicket] = useState([]);
+  const [blockedTickets, setBlockedTickets] = useState([]);
   const [selectedTickets, setSelectedTickets] = useState([]);
 
   const [state, setState] = useState({
@@ -42,8 +43,9 @@ const Lottery = ({ match }) => {
             `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
           )
           .then((res) => {
-            console.log("from ticket", res.data.data);
+            console.log("from ticket", res.data);
             setSelectedTickets([]);
+            setBlockedTickets(res.data.booked_tickets.tickets);
             setTicket(res.data.data[0]);
           });
       });
@@ -94,6 +96,7 @@ const Lottery = ({ match }) => {
     console.log(res.data);
   };
 
+  console.log("From blocked tickets", blockedTickets);
   console.log("From selected tickets", selectedTickets);
   console.log("From contest", state.contest);
   return (
@@ -318,24 +321,34 @@ const Lottery = ({ match }) => {
                               {ticket.tickets &&
                                 ticket.tickets.map((ticket, i) => {
                                   let exist = selectedTickets.includes(ticket);
+                                  let blockedList =
+                                    blockedTickets.includes(ticket);
                                   return (
                                     <li
+                                      readOnly={blockedList}
                                       className={`${
                                         exist && "contestListSelected"
-                                      }`}
+                                      }
+
+                                      ${blockedList && "blockedtListSelected"}
+                                      
+                                      
+                                      `}
                                       key={i}
                                       onClick={() => {
-                                        if (!exist) {
-                                          setSelectedTickets([
-                                            ...selectedTickets,
-                                            ticket,
-                                          ]);
-                                        } else {
-                                          setSelectedTickets(
-                                            selectedTickets.filter(
-                                              (tket) => tket !== ticket
-                                            )
-                                          );
+                                        if (!blockedList) {
+                                          if (!exist) {
+                                            setSelectedTickets([
+                                              ...selectedTickets,
+                                              ticket,
+                                            ]);
+                                          } else {
+                                            setSelectedTickets(
+                                              selectedTickets.filter(
+                                                (tket) => tket !== ticket
+                                              )
+                                            );
+                                          }
                                         }
                                       }}
                                     >

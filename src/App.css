@@ -98,3 +98,14 @@
   ) !important;
   color: #fff !important;
 }
+
+
+.blockedtListSelected {
+  background-image: -webkit-linear-gradient(
+    26deg,
+    #382f21 5%,
+    #e74b1b 39%,
+    #de3232
+  ) !important;
+  color: #fff !important;
+}
