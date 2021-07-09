@@ -43,7 +43,7 @@ const Profile = ({ match }) => {
         setLoading(false);
       });
     });
-  }, [state, match.params.id]);
+  }, []);
 
   // console.log("sldkfjsl", profileData);
   if (loading) {
