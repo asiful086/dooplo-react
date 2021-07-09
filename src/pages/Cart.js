@@ -1,3 +1,6 @@
+import {Link } from "react-router-dom"
+
+
 const Cart = () => {
   return (
     <>
@@ -5,7 +8,7 @@ const Cart = () => {
         <img
           className="bc-img"
           src="assets/images/breadcrumb/cart-bg.png"
-          alt
+          alt="random"
         />
         <div className="container">
           <div className="row">
@@ -13,10 +16,10 @@ const Cart = () => {
               <h4 className="title">Cart</h4>
               <ul className="breadcrumb-list">
                 <li>
-                  <a href="index.html">
+                  <Link to="index.html">
                     <i className="fas fa-home" />
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span>
@@ -24,7 +27,7 @@ const Cart = () => {
                   </span>
                 </li>
                 <li>
-                  <a href="cart.html">Cart</a>
+                  <Link to="cart.html">Cart</Link>
                 </li>
               </ul>
             </div>
@@ -51,9 +54,9 @@ const Cart = () => {
                   </p>
                 </div>
                 <div className="right">
-                  <a href="#">
+                  <Link to="#">
                     <i className="far fa-edit" /> Update Cart
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="cart-table-area">
@@ -81,7 +84,7 @@ const Cart = () => {
                           </ul>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -107,7 +110,7 @@ const Cart = () => {
                           <span className="time">30 mins.left</span>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -127,7 +130,7 @@ const Cart = () => {
                           </ul>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -153,7 +156,7 @@ const Cart = () => {
                           <span className="time">30 mins.left</span>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -173,7 +176,7 @@ const Cart = () => {
                           </ul>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -199,7 +202,7 @@ const Cart = () => {
                           <span className="time">30 mins.left</span>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -219,7 +222,7 @@ const Cart = () => {
                           </ul>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -245,7 +248,7 @@ const Cart = () => {
                           <span className="time">30 mins.left</span>
                         </td>
                         <td>
-                          <img src="assets/images/icon1.png" alt />
+                          <img src="assets/images/icon1.png" alt="random" />
                           0.00000051
                         </td>
                         <td>
@@ -262,7 +265,7 @@ const Cart = () => {
                 <div className="content">
                   <span>Total to Pay:</span>
                   <div className="num">
-                    <img src="assets/images/icon1.png" alt />
+                    <img src="assets/images/icon1.png" alt="random" />
                     0.00000051
                   </div>
                 </div>
@@ -283,91 +286,91 @@ const Cart = () => {
             <div className="col-lg-12">
               <div className="method-slider">
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/dabit-card.png" alt />
+                      <img src="assets/images/payment/dabit-card.png" alt="random" />
                     </div>
                     <span>Credit Card</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/dabit-card.png" alt />
+                      <img src="assets/images/payment/dabit-card.png" alt="random" />
                     </div>
                     <span>Dabit Card</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method active">
+                  <Link to="#" className="single-method active">
                     <div className="icon">
-                      <img src="assets/images/payment/paypal.png" alt />
+                      <img src="assets/images/payment/paypal.png" alt="random" />
                     </div>
                     <span>Paypal</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/bitcoin.png" alt />
+                      <img src="assets/images/payment/bitcoin.png" alt="random" />
                     </div>
                     <span>Bitcoin</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/litecoin.png" alt />
+                      <img src="assets/images/payment/litecoin.png" alt="random" />
                     </div>
                     <span>Litecoin</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/ether.png" alt />
+                      <img src="assets/images/payment/ether.png" alt="random" />
                     </div>
                     <span>Ethereum</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/rippel.png" alt />
+                      <img src="assets/images/payment/rippel.png" alt="random" />
                     </div>
                     <span>Ripple </span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/bitcoin.png" alt />
+                      <img src="assets/images/payment/bitcoin.png" alt="random" />
                     </div>
                     <span>Bitcoin</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/litecoin.png" alt />
+                      <img src="assets/images/payment/litecoin.png" alt="random" />
                     </div>
                     <span>Litecoin</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="item">
-                  <a href="#" className="single-method">
+                  <Link to="#" className="single-method">
                     <div className="icon">
-                      <img src="assets/images/payment/ether.png" alt />
+                      <img src="assets/images/payment/ether.png" alt="random" />
                     </div>
                     <span>Ethereum</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-12 text-center">
-              <a href="#" className="mybtn1">
+              <Link to="#" className="mybtn1">
                 PurChase
-              </a>
+              </Link>
             </div>
           </div>
         </div>

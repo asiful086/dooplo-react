@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <>
@@ -52,36 +54,36 @@ const Footer = () => {
                 <h4 className="title">About</h4>
                 <ul className="link-list">
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Contact Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Latest Blog
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Authenticity
                       Guarantee
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Customer
                       Reviews
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -91,39 +93,39 @@ const Footer = () => {
                 <h4 className="title">My Account</h4>
                 <ul className="link-list">
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Manage Your
                       Account
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> How to Deposit
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> How to
                       Withdraw
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Account
                       Varification
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Safety &amp;
                       Security
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" /> Membership
                       Level
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -133,40 +135,40 @@ const Footer = () => {
                 <h4 className="title">help center</h4>
                 <ul className="link-list">
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Help centre
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       FAQ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Quick Start Guide
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Tutorials
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Borrow
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Lend
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -176,40 +178,40 @@ const Footer = () => {
                 <h4 className="title">Legal Info</h4>
                 <ul className="link-list">
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Risk Warnings
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Privacy Notice
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Security
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Terms of Service
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Become Affiliate
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="#">
                       <i className="fas fa-angle-double-right" />
                       Complaints Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -223,26 +225,26 @@ const Footer = () => {
                 <div className="left-area">
                   <p>
                     Copyright © 2019.All Rights Reserved By{" "}
-                    <a href="#">Dooplo</a>
+                    <Link to="#">Dooplo</Link>
                   </p>
                 </div>
               </div>
               <div className="col-lg-7">
                 <ul className="copright-area-links">
                   <li>
-                    <a href="#">Terms Of Use</a>
+                    <Link to="#">Terms Of Use</Link>
                   </li>
                   <li>
-                    <a href="#">Privacy Policy</a>
+                    <Link to="#">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="#">Gamble</a>
+                    <Link to="#">Gamble</Link>
                   </li>
                   <li>
-                    <a href="#">Aware</a>
+                    <Link to="#">Aware</Link>
                   </li>
                   <li>
-                    <a href="#">Help Cente</a>
+                    <Link to="#">Help Cente</Link>
                   </li>
                 </ul>
               </div>

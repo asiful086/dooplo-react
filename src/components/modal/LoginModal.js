@@ -156,14 +156,14 @@ const LoginModal = () => {
             <div className="form-footer">
               <p>
                 Not a member?
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   data-dismiss="modal"
                   data-toggle="modal"
                   data-target="#signin"
                 >
                   Create account <i className="fas fa-angle-double-right" />
-                </a>
+                </Link>
               </p>
             </div>
           </div>

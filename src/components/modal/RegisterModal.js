@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/action/userAction";
+import { Link } from "react-router-dom";
 
 import AuthField from "../form/AuthField";
 
@@ -175,14 +176,14 @@ const RegisterModal = () => {
             <div className="form-footer">
               <p>
                 Already a memeber
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   data-dismiss="modal"
                   data-toggle="modal"
                   data-target="#login"
                 >
                   Sign in <i className="fas fa-angle-double-right" />
-                </a>
+                </Link>
               </p>
             </div>
           </div>

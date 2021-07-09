@@ -25,7 +25,7 @@ const Header = ({ location }) => {
         contests: res.data.data,
       });
     });
-  }, []);
+  }, [state]);
 
   const activeLink = (url) => {
     if (location.pathname === url) return true;
@@ -121,9 +121,9 @@ const Header = ({ location }) => {
                                 </ul>
                               </li>
                             </ul>
-                            <a href="cart.html" className="link-btn">
+                            <Link to="cart.html" className="link-btn">
                               Cart Page
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </li>
@@ -134,34 +134,34 @@ const Header = ({ location }) => {
                           <div className="tm-dropdown-menu">
                             <ul className="list">
                               <li>
-                                <a href="#">
+                                <Link to="#">
                                   <i className="fas fa-bell" />
                                   Invest Exchange
-                                </a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="#">
+                                <Link to="#">
                                   <i className="fas fa-bell" />
                                   Invest Exchange
-                                </a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="#">
+                                <Link to="#">
                                   <i className="fas fa-bell" />
                                   Invest Exchange
-                                </a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="#">
+                                <Link to="#">
                                   <i className="fas fa-bell" />
                                   Invest Exchange
-                                </a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="#">
+                                <Link to="#">
                                   <i className="fas fa-bell" />
                                   Invest Exchange
-                                </a>
+                                </Link>
                               </li>
                             </ul>
                           </div>
@@ -176,14 +176,14 @@ const Header = ({ location }) => {
                             sign out
                           </button>
                         ) : (
-                          <a
-                            href=""
+                          <Link
+                            to=""
                             className="sign-in"
                             data-toggle="modal"
                             data-target="#login"
                           >
                             <i className="fas fa-user" /> Sign In
-                          </a>
+                          </Link>
                         )}
                       </li>
                     </ul>
@@ -220,9 +220,9 @@ const Header = ({ location }) => {
                   >
                     <ul className="navbar-nav ml-auto">
                       {/* <li className="nav-item dropdown">
-                        <a
+                        <Link
                           className="nav-link active dropdown-toggle"
-                          href="#"
+                          to="#"
                           role="button"
                           data-toggle="dropdown"
                           aria-haspopup="true"
@@ -230,20 +230,20 @@ const Header = ({ location }) => {
                         >
                           Home
                           <div className="mr-hover-effect" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu">
                           <li>
-                            <a className="dropdown-item" href="index.html">
+                            <Link className="dropdown-item" to="index.html">
                               {" "}
                               <i className="fa fa-angle-double-right" />
                               Home 1
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="index2.html">
+                            <Link className="dropdown-item" to="index2.html">
                               {" "}
                               <i className="fa fa-angle-double-right" /> Home 2
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li> */}
@@ -405,15 +405,15 @@ const Header = ({ location }) => {
                       </li>
                     </ul>
                     {!user && (
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="mybtn1"
                         data-toggle="modal"
                         data-target="#signin"
                       >
                         {" "}
                         Join us
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </nav>

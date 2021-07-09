@@ -1,5 +1,5 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+// import Footer from "../components/Footer";
+// import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ const Home = () => {
         contests: res.data.data,
       });
     });
-  }, []);
+  }, [state]);
   return (
     <>
       {/* preloader area start */}
@@ -47,9 +47,9 @@ const Home = () => {
                     at Dooplo!
                   </p>
                   <div className="links">
-                    <a href="#" className="mybtn1 link1">
+                    <Link href="#" className="mybtn1 link1">
                       Get Started Now!
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -155,9 +155,9 @@ const Home = () => {
                           </div>
                           <div className="content">
                             <h4 className="title">Exclusive Offer</h4>
-                            <a href="#" className="link">
+                            <Link href="#" className="link">
                               read more <i className="fas fa-arrow-right" />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -171,9 +171,9 @@ const Home = () => {
                           </div>
                           <div className="content">
                             <h4 className="title">Provably Fair</h4>
-                            <a href="#" className="link">
+                            <Link href="#" className="link">
                               read more <i className="fas fa-arrow-right" />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -187,9 +187,9 @@ const Home = () => {
                           </div>
                           <div className="content">
                             <h4 className="title">24/7 Support</h4>
-                            <a href="#" className="link">
+                            <Link href="#" className="link">
                               read more <i className="fas fa-arrow-right" />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -277,9 +277,9 @@ const Home = () => {
                     </div>
                     <div className="content">
                       <h4 className="title">Exclusive Offer</h4>
-                      <a href="#" className="link">
+                      <Link href="#" className="link">
                         read more <i className="fas fa-arrow-right" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -287,25 +287,25 @@ const Home = () => {
             <div className="item">
               <div className="single-game">
                 <img src="assets/images/game/icon2.png" alt="random" />
-                <a href="#" className="mybtn2">
+                <Link href="#" className="mybtn2">
                   PLay NoW !
-                </a>
+                </Link>
               </div>
             </div>
             <div className="item">
               <div className="single-game">
                 <img src="assets/images/game/icon3.png" alt="random" />
-                <a href="#" className="mybtn2">
+                <Link href="#" className="mybtn2">
                   PLay NoW !
-                </a>
+                </Link>
               </div>
             </div>
             <div className="item">
               <div className="single-game">
                 <img src="assets/images/game/icon2.png" alt="random" />
-                <a href="#" className="mybtn2">
+                <Link href="#" className="mybtn2">
                   PLay NoW !
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -329,9 +329,9 @@ const Home = () => {
                     required.Gain early access to Dooplo and experience crypto
                     like never before.
                   </p>
-                  <a href="#" className="mybtn1">
+                  <Link href="#" className="mybtn1">
                     Play Now!
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -420,9 +420,9 @@ const Home = () => {
           </div>
           <div className="row">
             <div className="col-lg-12 text-xl-center">
-              <a className="mybtn2" href="#">
+              <Link className="mybtn2" href="#">
                 View All{" "}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

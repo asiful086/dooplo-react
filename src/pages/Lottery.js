@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+import { Link } from "react-router-dom";
 
 const Lottery = ({ match }) => {
+  const user = useSelector((state) => state.userReducer.user);
+
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -38,11 +43,11 @@ const Lottery = ({ match }) => {
           )
           .then((res) => {
             console.log("from ticket", res.data.data);
-
+            setSelectedTickets([]);
             setTicket(res.data.data[0]);
           });
       });
-  }, []);
+  }, [match.params.id]);
 
   // for timer
   useEffect(() => {
@@ -76,7 +81,19 @@ const Lottery = ({ match }) => {
       clearInterval(myInterval);
     };
   });
-  // akhar_ticket_price
+
+  const AddToCart = async () => {
+    var formData = new FormData();
+    formData.append("userid", user.userid);
+    formData.append("contest_id", state.contest.id);
+    formData.append("tickets", selectedTickets.join());
+    let res = await axios.post(
+      "https://easylifeyes.com/lottery/add_to_cart",
+      formData
+    );
+    console.log(res.data);
+  };
+
   console.log("From selected tickets", selectedTickets);
   console.log("From contest", state.contest);
   return (
@@ -94,10 +111,10 @@ const Lottery = ({ match }) => {
               <h4 className="title">Contest</h4>
               <ul className="breadcrumb-list">
                 <li>
-                  <a href="index.html">
+                  <Link to="index.html">
                     <i className="fas fa-home" />
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span>
@@ -105,7 +122,7 @@ const Lottery = ({ match }) => {
                   </span>
                 </li>
                 <li>
-                  <a href="lottery.html">Contest</a>
+                  <Link to="lottery.html">Contest</Link>
                 </li>
               </ul>
             </div>
@@ -333,7 +350,11 @@ const Lottery = ({ match }) => {
                     </div>
                     <div className="row">
                       <div className="col-lg-12 text-center">
-                        <button type="button" className="mybtn1">
+                        <button
+                          type="button"
+                          className="mybtn1"
+                          onClick={AddToCart}
+                        >
                           Add to cart
                         </button>
                       </div>
@@ -371,9 +392,9 @@ const Lottery = ({ match }) => {
                   so we know you're of legal age and so no one else can use your
                   account.We answer the most commonly asked lotto questions..
                 </p>
-                <a href="#" className="mybtn1">
+                <Link to="#" className="mybtn1">
                   Check FAQs
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -456,9 +477,9 @@ const Lottery = ({ match }) => {
           </div>
           <div className="row">
             <div className="col-lg-12 text-xl-center">
-              <a className="mybtn2" href="#">
+              <Link className="mybtn2" to="#">
                 View All{" "}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
