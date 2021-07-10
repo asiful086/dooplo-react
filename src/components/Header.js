@@ -10,6 +10,7 @@ import RegisterModal from "./modal/RegisterModal";
 const Header = ({ location }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
+  const cartTickets = useSelector((state) => state.cartReducer.cartTickets);
 
   const [state, setState] = useState({
     errorMessage: "",
@@ -69,10 +70,32 @@ const Header = ({ location }) => {
                       <li>
                         <div className="cart-icon tm-dropdown">
                           <i className="fas fa-cart-arrow-down" />
-                          <span className="cart-count">10</span>
+                          <span className="cart-count">
+                            {cartTickets.length}
+                          </span>
                           <div className="tm-dropdown-menu">
                             <ul className="list">
                               <li className="list-item">
+                                {/* <div className="close">
+                                  <i className="fas fa-times" />
+                                </div> */}
+                                <ul className="number-list">
+                                  {cartTickets &&
+                                    cartTickets.map((ticket, index) => (
+                                      <li key={ticket.id}>
+                                        {ticket.ticket_no}
+                                      </li>
+                                    ))}
+                                  {/* <li>25</li>
+                                  <li>26</li>
+                                  <li>27</li>
+                                  <li>28</li>
+                                  <li>28</li>
+                                  <li>28</li>
+                                  <li>28</li> */}
+                                </ul>
+                              </li>
+                              {/* <li className="list-item">
                                 <div className="close">
                                   <i className="fas fa-times" />
                                 </div>
@@ -107,22 +130,10 @@ const Header = ({ location }) => {
                                   <li>27</li>
                                   <li>28</li>
                                 </ul>
-                              </li>
-                              <li className="list-item">
-                                <div className="close">
-                                  <i className="fas fa-times" />
-                                </div>
-                                <ul className="number-list">
-                                  <li>24</li>
-                                  <li>25</li>
-                                  <li>26</li>
-                                  <li>27</li>
-                                  <li>28</li>
-                                </ul>
-                              </li>
+                              </li> */}
                             </ul>
                             <Link to="cart.html" className="link-btn">
-                              Cart Page
+                              Checkout
                             </Link>
                           </div>
                         </div>

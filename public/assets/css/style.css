@@ -1199,10 +1199,10 @@ select:focus {
   .number-list
   li {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   font-size: 10px;
-  line-height: 20px;
   font-weight: 600;
   margin: 0px;
 }

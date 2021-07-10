@@ -4,7 +4,7 @@ const initailState = {
     : null,
 };
 
-const cartReducer = (state = initailState, action) => {
+const userReducer = (state = initailState, action) => {
   switch (action.type) {
     case "LOGIN": {
       localStorage.setItem("user", JSON.stringify(action.payload));
@@ -29,4 +29,4 @@ const cartReducer = (state = initailState, action) => {
   }
 };
 
-export default cartReducer;
+export default userReducer;

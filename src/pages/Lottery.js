@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
+import { ticketsFetch } from "../store/action/cartAction";
 
 const Lottery = ({ match }) => {
   const user = useSelector((state) => state.userReducer.user);
+  const dispatch = useDispatch();
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -93,12 +95,15 @@ const Lottery = ({ match }) => {
       "https://easylifeyes.com/lottery/add_to_cart",
       formData
     );
-    console.log(res.data);
+    if (res.data.dataArr) {
+      dispatch(ticketsFetch(user.userid));
+    }
+    // console.log("hola", res.data);
   };
 
-  console.log("From blocked tickets", blockedTickets);
-  console.log("From selected tickets", selectedTickets);
-  console.log("From contest", state.contest);
+  // console.log("From blocked tickets", blockedTickets);
+  // console.log("From selected tickets", selectedTickets);
+  // console.log("From contest", state.contest);
   return (
     <>
       {/* Breadcrumb Area Start */}
@@ -331,7 +336,6 @@ const Lottery = ({ match }) => {
                                       }
 
                                       ${blockedList && "blockedtListSelected"}
-                                      
                                       
                                       `}
                                       key={i}
