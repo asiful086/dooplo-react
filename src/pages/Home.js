@@ -19,7 +19,7 @@ const Home = () => {
         contests: res.data.data,
       });
     });
-  }, [state]);
+  }, []);
   return (
     <>
       {/* preloader area start */}

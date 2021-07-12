@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/action/userAction";
+import { ticketsFetch } from "../../store/action/cartAction";
 
 const LoginModal = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const LoginModal = () => {
                   });
                   dispatch(login(res.data.dataArr));
                   // console.log(res.data.dataArr.userid);
-                  // dispatch(ticketsFetch(res.data.dataArr.userid));
+                  dispatch(ticketsFetch(res.data.dataArr.userid));
 
                   setTimeout(function () {
                     // modalRef.current.transition = "all 2s !important";

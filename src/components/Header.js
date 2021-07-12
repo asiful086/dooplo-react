@@ -31,7 +31,7 @@ const Header = ({ location }) => {
         contests: res.data.data,
       });
     });
-  }, [state]);
+  }, []);
 
   const activeLink = (url) => {
     if (location.pathname === url) return true;
