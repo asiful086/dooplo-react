@@ -101,7 +101,8 @@ const Cart = () => {
                                 alt="random"
                               />
                               {console.log(ticket)}
-                              0.00000051
+                              {ticket.ticket_no < 10 ? 100 : 1000}
+                              {/* 0.00000051 */}
                             </td>
                             <td>
                               <div className="remove">
@@ -118,9 +119,21 @@ const Cart = () => {
                 <div className="content">
                   <span>Total to Pay:</span>
                   <div className="num">
-                    <img src="../../assets/images/icon1.png" alt="random" />
-                    0.00000051
+                    <img src="../../rupee.png" width="36" alt="random" />
+                    {cartTickets.length > 0 &&
+                      cartTickets.reduce((acc, cvalue) => {
+                        console.log(cvalue);
+                        if (cvalue.ticket_no < 10) {
+                          return acc + 100;
+                        }
+                        return acc + 1000;
+                      }, 0)}
                   </div>
+                </div>
+                <div className="col-lg-12 text-center pt-5">
+                  <Link to="#" className="mybtn1">
+                    PurChase
+                  </Link>
                 </div>
               </div>
             </div>
@@ -128,22 +141,7 @@ const Cart = () => {
         </div>
       </section>
       {/* Cart Area End */}
-      {/* Payment-method Area Start */}
-      <section className="payment-method">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <h4 className="title">Payment Method</h4>
-              <p className="text">Choose a payment method</p>
-            </div>
-            <div className="col-lg-12 text-center">
-              <Link to="#" className="mybtn1">
-                PurChase
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </>
   );
 };
