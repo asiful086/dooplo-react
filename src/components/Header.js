@@ -21,7 +21,6 @@ const Header = ({ location }) => {
 
   useEffect(() => {
     if (user) {
-
       dispatch(ticketsFetch(user.userid));
     }
     // fetching contest
@@ -95,7 +94,7 @@ const Header = ({ location }) => {
                                   </ul>
                                 </li>
                               </ul>
-                              <Link to="cart.html" className="link-btn">
+                              <Link to="/cart" className="link-btn">
                                 Checkout
                               </Link>
                             </div>
