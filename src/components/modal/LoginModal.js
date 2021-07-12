@@ -72,6 +72,8 @@ const LoginModal = () => {
                     successMessage: res.data.message,
                   });
                   dispatch(login(res.data.dataArr));
+                  // console.log(res.data.dataArr.userid);
+                  // dispatch(ticketsFetch(res.data.dataArr.userid));
 
                   setTimeout(function () {
                     // modalRef.current.transition = "all 2s !important";

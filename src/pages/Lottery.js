@@ -23,6 +23,7 @@ const Lottery = ({ match }) => {
   });
 
   useEffect(() => {
+    // dispatch(ticketsFetch(user.userid));
     // fetching contest
     axios
       .get(`https://easylifeyes.com/lottery/get_contests/${match.params.id}`)
@@ -98,12 +99,8 @@ const Lottery = ({ match }) => {
     if (res.data.dataArr) {
       dispatch(ticketsFetch(user.userid));
     }
-    // console.log("hola", res.data);
   };
 
-  // console.log("From blocked tickets", blockedTickets);
-  // console.log("From selected tickets", selectedTickets);
-  // console.log("From contest", state.contest);
   return (
     <>
       {/* Breadcrumb Area Start */}

@@ -8,7 +8,7 @@ const userReducer = (state = initailState, action) => {
   switch (action.type) {
     case "LOGIN": {
       localStorage.setItem("user", JSON.stringify(action.payload));
-
+      // console.log("the payload is ", action.payload);
       return {
         ...state,
         user: action.payload,

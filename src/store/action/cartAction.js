@@ -8,6 +8,7 @@ export const addToCart = (item) => {
 };
 
 export const ticketsFetch = (userid) => {
+  console.log("user id from ticketsFetch", userid);
   var formData = new FormData();
   formData.append("userid", userid);
 
@@ -15,11 +16,13 @@ export const ticketsFetch = (userid) => {
     axios
       .post("https://easylifeyes.com/lottery/get_my_cart", formData)
       .then((res) => {
-        console.log("from cart tickets", res.data.dataArr);
-        dispatch({
-          type: "FETCH_TICKETS",
-          payload: res.data.dataArr,
-        });
+        // console.log("from cart tickets", res.data);
+        if (res.data.dataArr) {
+          dispatch({
+            type: "FETCH_TICKETS",
+            payload: res.data.dataArr,
+          });
+        }
       });
   };
 };

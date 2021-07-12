@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
+import { ticketsFetch } from "../store/action/cartAction";
 import { logout } from "../store/action/userAction";
 
 import LoginModal from "./modal/LoginModal";
@@ -19,6 +20,10 @@ const Header = ({ location }) => {
   });
 
   useEffect(() => {
+    if (user) {
+
+      dispatch(ticketsFetch(user.userid));
+    }
     // fetching contest
     axios.get("https://easylifeyes.com/lottery/get_contests").then((res) => {
       setState({
@@ -68,75 +73,34 @@ const Header = ({ location }) => {
                   <div className="right-content">
                     <ul className="right-list">
                       <li>
-                        <div className="cart-icon tm-dropdown">
-                          <i className="fas fa-cart-arrow-down" />
-                          <span className="cart-count">
-                            {cartTickets.length}
-                          </span>
-                          <div className="tm-dropdown-menu">
-                            <ul className="list">
-                              <li className="list-item">
-                                {/* <div className="close">
+                        {user && (
+                          <div className="cart-icon tm-dropdown">
+                            <i className="fas fa-cart-arrow-down" />
+                            <span className="cart-count">
+                              {cartTickets.length}
+                            </span>
+                            <div className="tm-dropdown-menu">
+                              <ul className="list">
+                                <li className="list-item">
+                                  {/* <div className="close">
                                   <i className="fas fa-times" />
                                 </div> */}
-                                <ul className="number-list">
-                                  {cartTickets &&
-                                    cartTickets.map((ticket, index) => (
-                                      <li key={ticket.id}>
-                                        {ticket.ticket_no}
-                                      </li>
-                                    ))}
-                                  {/* <li>25</li>
-                                  <li>26</li>
-                                  <li>27</li>
-                                  <li>28</li>
-                                  <li>28</li>
-                                  <li>28</li>
-                                  <li>28</li> */}
-                                </ul>
-                              </li>
-                              {/* <li className="list-item">
-                                <div className="close">
-                                  <i className="fas fa-times" />
-                                </div>
-                                <ul className="number-list">
-                                  <li>24</li>
-                                  <li>25</li>
-                                  <li>26</li>
-                                  <li>27</li>
-                                  <li>28</li>
-                                </ul>
-                              </li>
-                              <li className="list-item">
-                                <div className="close">
-                                  <i className="fas fa-times" />
-                                </div>
-                                <ul className="number-list">
-                                  <li>24</li>
-                                  <li>25</li>
-                                  <li>26</li>
-                                  <li>27</li>
-                                  <li>28</li>
-                                </ul>
-                              </li>
-                              <li className="list-item">
-                                <div className="close">
-                                  <i className="fas fa-times" />
-                                </div>
-                                <ul className="number-list">
-                                  <li>24</li>
-                                  <li>25</li>
-                                  <li>26</li>
-                                  <li>27</li>
-                                  <li>28</li>
-                                </ul>
-                              </li> */}
-                            </ul>
-                            <Link to="cart.html" className="link-btn">
-                              Checkout
-                            </Link>
+                                  <ul className="number-list">
+                                    {cartTickets &&
+                                      cartTickets.map((ticket, index) => (
+                                        <li key={ticket.id}>
+                                          {ticket.ticket_no}
+                                        </li>
+                                      ))}
+                                  </ul>
+                                </li>
+                              </ul>
+                              <Link to="cart.html" className="link-btn">
+                                Checkout
+                              </Link>
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </li>
                       <li>
                         <div className="notofication tm-dropdown">
