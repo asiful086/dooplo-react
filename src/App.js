@@ -38,7 +38,7 @@ const App = () => {
         <Route path="/affiliate" component={Affiliate} />
         <Route path="/awards" component={Awards} />
         <Route path="/bonus" component={Bonus} /> */}
-        <Route path="/cart" component={Cart} />
+        <ProtectedRoute path="/checkout" component={Cart} />
         {/* <Route path="/faq" component={Faq} />
         <Route path="/how-it-work" component={HowItWork} />
         <Route path="/terms-and-condition" component={TermsAndCondition} />

@@ -94,7 +94,7 @@ const Header = ({ location }) => {
                                   </ul>
                                 </li>
                               </ul>
-                              <Link to="/cart" className="link-btn">
+                              <Link to="/checkout" className="link-btn">
                                 Checkout
                               </Link>
                             </div>
