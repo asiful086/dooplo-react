@@ -25,7 +25,7 @@ const Cart = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <h4 className="title">Cart</h4>
+              <h4 className="title">Checkout</h4>
               <ul className="breadcrumb-list">
                 <li>
                   <Link to="index.html">
@@ -39,7 +39,7 @@ const Cart = () => {
                   </span>
                 </li>
                 <li>
-                  <Link to="cart.html">Cart</Link>
+                  <Link to="cart.html">Checkout</Link>
                 </li>
               </ul>
             </div>
@@ -65,11 +65,11 @@ const Cart = () => {
                     Selected Numbers was successfully added to your cart
                   </p>
                 </div>
-                <div className="right">
+                {/* <div className="right">
                   <Link to="#">
                     <i className="far fa-edit" /> Update Cart
                   </Link>
-                </div>
+                </div> */}
               </div>
               <div className="cart-table-area">
                 <div className="responsive-table">
