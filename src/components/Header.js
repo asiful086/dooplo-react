@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import { ticketsFetch } from "../store/action/cartAction";
 import { logout } from "../store/action/userAction";
 
@@ -9,6 +9,7 @@ import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 
 const Header = ({ location }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
   const cartTickets = useSelector((state) => state.cartReducer.cartTickets);
@@ -144,7 +145,10 @@ const Header = ({ location }) => {
                       <li>
                         {user ? (
                           <button
-                            onClick={() => dispatch(logout())}
+                            onClick={() => {
+                              dispatch(logout());
+                              history.push("/");
+                            }}
                             className="headerButton"
                           >
                             sign out
