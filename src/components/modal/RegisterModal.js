@@ -105,7 +105,7 @@ const RegisterModal = () => {
                         "https://easylifeyes.com/lottery/signup",
                         formData
                       );
-
+                      // console.log("this is from register", res.data);
                       if (res.data.response === "SUCCESS") {
                         setState({
                           ...state,
@@ -113,10 +113,11 @@ const RegisterModal = () => {
                           successMessage: res.data.message,
                         });
 
-                        dispatch(login(res.data.dataArr));
+                        // dispatch(login(res.data.dataArr));
 
                         setTimeout(function () {
                           dispatch(close_register_modal());
+                          dispatch(show_login_modal());
                           history.push("/");
                         }, 1000);
                       }

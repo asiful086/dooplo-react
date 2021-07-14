@@ -6,9 +6,9 @@ import productReducer from "./productReducer";
 import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
-  cartReducer: cartReducer,
+  cartReducer,
   modalReducer,
-  productReducer: productReducer,
+  productReducer,
   userReducer,
 });
 
