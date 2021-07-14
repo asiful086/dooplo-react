@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, withRouter } from "react-router-dom";
 import { ticketsFetch } from "../store/action/cartAction";
+import {
+  show_login_modal,
+  show_register_modal,
+} from "../store/action/modalAction";
 import { logout } from "../store/action/userAction";
 
 import LoginModal from "./modal/LoginModal";
@@ -157,8 +161,9 @@ const Header = ({ location }) => {
                           <Link
                             to=""
                             className="sign-in"
-                            data-toggle="modal"
-                            data-target="#login"
+                            // data-toggle="modal"
+                            // data-target="#login"
+                            onClick={() => dispatch(show_login_modal())}
                           >
                             <i className="fas fa-user" /> Sign In
                           </Link>
@@ -386,8 +391,9 @@ const Header = ({ location }) => {
                       <Link
                         to="#"
                         className="mybtn1"
-                        data-toggle="modal"
-                        data-target="#signin"
+                        // data-toggle="modal"
+                        // data-target="#signin"
+                        onClick={() => dispatch(show_register_modal())}
                       >
                         {" "}
                         Join us

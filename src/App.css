@@ -99,7 +99,6 @@
   color: #fff !important;
 }
 
-
 .blockedtListSelected {
   background-image: -webkit-linear-gradient(
     26deg,
@@ -108,4 +107,34 @@
     #de3232
   ) !important;
   color: #fff !important;
+}
+
+.login-modal {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 11111 !important;
+  width: 498px !important;
+  max-height: calc(100vh) !important;
+  overflow-y: auto !important;
+}
+.login-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.black-drawer {
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 1111 !important;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+}
+
+@media screen and (max-width: 576px) {
+  .login-modal {
+    width: 100% !important;
+  }
 }
