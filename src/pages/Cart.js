@@ -78,6 +78,7 @@ const Cart = () => {
                       <tr>
                         <th scope="col">Ticket numbers</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Contest Name</th>
                         {/* <th scope="col">Quantity</th>
                         <th scope="col">Expires</th>
                         <th scope="col">Total</th> */}
@@ -100,10 +101,11 @@ const Cart = () => {
                                 width="36"
                                 alt="random"
                               />
-                              {console.log(ticket)}
+                              {/* {console.log(ticket)} */}
                               {ticket.ticket_no < 10 ? 100 : 1000}
                               {/* 0.00000051 */}
                             </td>
+                            <td className="text-white">{ticket.contest}</td>
                             <td>
                               <div className="remove">
                                 <i className="fas fa-times" />
@@ -141,7 +143,6 @@ const Cart = () => {
         </div>
       </section>
       {/* Cart Area End */}
-      
     </>
   );
 };
