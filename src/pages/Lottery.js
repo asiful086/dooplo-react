@@ -15,6 +15,9 @@ const Lottery = ({ match }) => {
   const [ticket, setTicket] = useState([]);
   const [blockedTickets, setBlockedTickets] = useState([]);
   const [selectedTickets, setSelectedTickets] = useState([]);
+  const [showTimer, setShowTimer] = useState(false);
+  const [showTickets, setShowTickets] = useState(false);
+  const [contestMessage, setContestMessage] = useState("");
 
   const [state, setState] = useState({
     errorMessage: "",
@@ -33,23 +36,43 @@ const Lottery = ({ match }) => {
           contest: res.data.data[0],
         });
         let resContest = res.data.data[0];
-        let c_seconds = res.data.data[0].entry_start_time.split(":");
+        // let c_seconds = resContest.entry_start_time.split(":");
 
-        let drCSecond = res.data.data[0].draw_time.split(":");
+        // let drCSecond = resContest.draw_time.split(":");
 
-        setHours(drCSecond[0] - c_seconds[0]);
-        setMinutes(drCSecond[1] - c_seconds[1]);
-        setSeconds(drCSecond[2] - c_seconds[2]);
+        // setHours(drCSecond[0] - c_seconds[0]);
+        // setMinutes(drCSecond[1] - c_seconds[1]);
+        // setSeconds(drCSecond[2] - c_seconds[2]);
         // console.log("from contest", resContest);
         axios
           .get(
             `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
           )
           .then((res) => {
+            let the_data = res.data.data[0];
             console.log("from ticket", res.data);
             setSelectedTickets([]);
             setBlockedTickets(res.data.booked_tickets.tickets);
-            setTicket(res.data.data[0]);
+            if (the_data.enable === 0) {
+              setShowTimer(true);
+              setShowTickets(false);
+              if (the_data.expired === 0) {
+                let theTimer = the_data.starts_in.split(":");
+                // console.log("the timer", theTimer);
+
+                setHours(theTimer[0]);
+                setMinutes(theTimer[1]);
+                setSeconds(theTimer[2]);
+              } else {
+                setShowTimer(false);
+                setShowTickets(false);
+                setContestMessage("contest is expired, better luck next time");
+              }
+            } else {
+              setShowTimer(false);
+              setShowTickets(true);
+            }
+            setTicket(the_data);
           });
       });
   }, [match.params.id]);
@@ -221,156 +244,162 @@ const Lottery = ({ match }) => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="draw-time">
-                  <h5 className="subtitle">Lottery Draw Starts In:</h5>
-                  <div className="draw-counter">
-                    {/* <div data-countdown="2021/12/15" /> */}
-                    {/* <div data-countdown={state.contest.entry_start_time} /> */}
-                    <div>
-                      {hours < 10 ? `0${hours}` : hours}:
-                      {minutes < 10 ? `0${minutes}` : minutes}:
-                      {seconds < 10 ? `0${seconds}` : seconds}
+            {contestMessage && <h1>{contestMessage}</h1>}
+            {showTimer && (
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="draw-time">
+                    <h5 className="subtitle">Lottery Draw Starts In:</h5>
+                    <div className="draw-counter">
+                      {/* <div data-countdown="2021/12/15" /> */}
+                      {/* <div data-countdown={state.contest.entry_start_time} /> */}
+                      <div>
+                        {hours < 10 ? `0${hours}` : hours}:
+                        {minutes < 10 ? `0${minutes}` : minutes}:
+                        {seconds < 10 ? `0${seconds}` : seconds}
+                      </div>
                     </div>
+                    <p className="text">To meet Today's challenges</p>
                   </div>
-                  <p className="text">To meet Today's challenges</p>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
-        <div className="buy-tickets">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="buy-tickets-box">
-                  <div className="heading">
-                    <h4 className="title">Buy Lottery Tickets</h4>
-                  </div>
-                  <div className="content">
-                    <div className="top-area">
-                      <div className="row">
-                        <div className="col-lg-4">
-                          <div className="info-box">
-                            <h4 className="title">1 TICKET COSTS</h4>
-                            <div className="number">
-                              <img
-                                src="../../rupee.png"
-                                alt="rupee"
-                                width="16"
-                                className="mr-1 pb-1"
-                              />
-                              {/* <i className="fab fa-bitcoin" /> */}
-                              AKHAR = {state.contest.akhar_ticket_price}
-                              {/* {selectedTickets.filter((tket) => tket < 10)
+        {showTickets && (
+          <div className="buy-tickets">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="buy-tickets-box">
+                    <div className="heading">
+                      <h4 className="title">Buy Lottery Tickets</h4>
+                    </div>
+                    <div className="content">
+                      <div className="top-area">
+                        <div className="row">
+                          <div className="col-lg-4">
+                            <div className="info-box">
+                              <h4 className="title">1 TICKET COSTS</h4>
+                              <div className="number">
+                                <img
+                                  src="../../rupee.png"
+                                  alt="rupee"
+                                  width="16"
+                                  className="mr-1 pb-1"
+                                />
+                                {/* <i className="fab fa-bitcoin" /> */}
+                                AKHAR = {state.contest.akhar_ticket_price}
+                                {/* {selectedTickets.filter((tket) => tket < 10)
                                 .length * state.contest.akhar_ticket_price} */}
-                            </div>
-                            <div className="number">
-                              <img
-                                src="../../rupee.png"
-                                alt="rupee"
-                                width="16"
-                                className="mr-1 pb-1"
-                              />
-                              {/* <i className="fab fa-bitcoin" /> */}
-                              TWO DIGIT NUMBER ={" "}
-                              {state.contest.digit_ticket_price}
-                              {/* {selectedTickets.filter((tket) => tket > 9)
+                              </div>
+                              <div className="number">
+                                <img
+                                  src="../../rupee.png"
+                                  alt="rupee"
+                                  width="16"
+                                  className="mr-1 pb-1"
+                                />
+                                {/* <i className="fab fa-bitcoin" /> */}
+                                TWO DIGIT NUMBER ={" "}
+                                {state.contest.digit_ticket_price}
+                                {/* {selectedTickets.filter((tket) => tket > 9)
                                 .length * state.contest.digit_ticket_price} */}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="info-box">
-                            <h4 className="title">QUANTITY</h4>
-                            <div className="number">
-                              <input
-                                type="number"
-                                value={selectedTickets.length}
-                              />
+                          <div className="col-lg-4">
+                            <div className="info-box">
+                              <h4 className="title">QUANTITY</h4>
+                              <div className="number">
+                                <input
+                                  type="number"
+                                  value={selectedTickets.length}
+                                />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="info-box">
-                            <h4 className="title">TOTAL COST</h4>
-                            <div className="number">
-                              {/* <i className="fab fa-bitcoin" /> */}
-                              <img
-                                src="../../rupee.png"
-                                alt="rupee"
-                                width="16"
-                                className="mr-1 pb-1"
-                              />
-                              {selectedTickets.filter((tket) => tket < 10)
-                                .length *
-                                state.contest.akhar_ticket_price +
-                                selectedTickets.filter((tket) => tket > 9)
+                          <div className="col-lg-4">
+                            <div className="info-box">
+                              <h4 className="title">TOTAL COST</h4>
+                              <div className="number">
+                                {/* <i className="fab fa-bitcoin" /> */}
+                                <img
+                                  src="../../rupee.png"
+                                  alt="rupee"
+                                  width="16"
+                                  className="mr-1 pb-1"
+                                />
+                                {selectedTickets.filter((tket) => tket < 10)
                                   .length *
-                                  state.contest.digit_ticket_price}
+                                  state.contest.akhar_ticket_price +
+                                  selectedTickets.filter((tket) => tket > 9)
+                                    .length *
+                                    state.contest.digit_ticket_price}
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="game-numbers">
-                      <h4 className="title">Tickets</h4>
-                      <div className="number-box">
-                        <div className="manual-number">
-                          <div className="main-content">
-                            <ul className="number-list">
-                              {ticket.tickets &&
-                                ticket.tickets.map((ticket, i) => {
-                                  let exist = selectedTickets.includes(ticket);
-                                  let blockedList =
-                                    blockedTickets.includes(ticket);
-                                  return (
-                                    <li
-                                      readOnly={blockedList}
-                                      className={`${
-                                        exist && "contestListSelected"
-                                      }
+                      <div className="game-numbers">
+                        <h4 className="title">Tickets</h4>
+                        <div className="number-box">
+                          <div className="manual-number">
+                            <div className="main-content">
+                              <ul className="number-list">
+                                {ticket.tickets &&
+                                  ticket.tickets.map((ticket, i) => {
+                                    let exist =
+                                      selectedTickets.includes(ticket);
+                                    let blockedList =
+                                      blockedTickets.includes(ticket);
+                                    return (
+                                      <li
+                                        readOnly={blockedList}
+                                        className={`${
+                                          exist && "contestListSelected"
+                                        }
 
                                       ${blockedList && "blockedtListSelected"}
                                       
                                       `}
-                                      key={i}
-                                      onClick={() => {
-                                        if (!blockedList) {
-                                          if (!exist) {
-                                            setSelectedTickets([
-                                              ...selectedTickets,
-                                              ticket,
-                                            ]);
-                                          } else {
-                                            setSelectedTickets(
-                                              selectedTickets.filter(
-                                                (tket) => tket !== ticket
-                                              )
-                                            );
+                                        key={i}
+                                        onClick={() => {
+                                          if (!blockedList) {
+                                            if (!exist) {
+                                              setSelectedTickets([
+                                                ...selectedTickets,
+                                                ticket,
+                                              ]);
+                                            } else {
+                                              setSelectedTickets(
+                                                selectedTickets.filter(
+                                                  (tket) => tket !== ticket
+                                                )
+                                              );
+                                            }
                                           }
-                                        }
-                                      }}
-                                    >
-                                      {ticket}
-                                    </li>
-                                  );
-                                })}
-                            </ul>
+                                        }}
+                                      >
+                                        {ticket}
+                                      </li>
+                                    );
+                                  })}
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-lg-12 text-center">
-                        <button
-                          type="button"
-                          className="mybtn1"
-                          onClick={AddToCart}
-                        >
-                          Add to cart
-                        </button>
+                      <div className="row">
+                        <div className="col-lg-12 text-center">
+                          <button
+                            type="button"
+                            className="mybtn1"
+                            onClick={AddToCart}
+                          >
+                            Add to cart
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -378,7 +407,7 @@ const Lottery = ({ match }) => {
               </div>
             </div>
           </div>
-        </div>
+        )}
       </section>
       {/* Lottery Staticstics  Area End */}
       {/* Latest Activities Area Start */}
