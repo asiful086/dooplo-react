@@ -49,6 +49,7 @@ const Lottery = ({ match }) => {
             `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
           )
           .then((res) => {
+            setContestMessage("");
             let the_data = res.data.data[0];
             console.log("from ticket", res.data);
             setSelectedTickets([]);
