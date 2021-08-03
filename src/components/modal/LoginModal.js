@@ -106,7 +106,7 @@ const LoginModal = () => {
                       formData.append("email", values.email);
                       formData.append("password", values.password);
                       let res = await axios.post(
-                        "https://easylifeyes.com/lottery/login",
+                        "https://redwinservices.in/lottery/login",
                         formData
                       );
 

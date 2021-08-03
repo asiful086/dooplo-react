@@ -29,7 +29,7 @@ const Header = ({ location }) => {
       dispatch(ticketsFetch(user.userid));
     }
     // fetching contest
-    axios.get("https://easylifeyes.com/lottery/get_contests").then((res) => {
+    axios.get("https://redwinservices.in/lottery/get_contests").then((res) => {
       setState({
         ...state,
         contests: res.data.data,

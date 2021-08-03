@@ -1,5 +1,6 @@
 {
   "name": "dooplo-react",
+  "homepage": "https://winnerpool.online/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

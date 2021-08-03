@@ -20,7 +20,7 @@ const Cart = () => {
     formData.append("userid", userid);
     formData.append("cart_id", cart_id);
     let res = await axios.post(
-      "https://easylifeyes.com/lottery/remove_cart_ticket",
+      "https://redwinservices.in/lottery/remove_cart_ticket",
       formData
     );
     // console.log(res.data);
@@ -145,7 +145,9 @@ const Cart = () => {
                     <img src="../../rupee.png" width="36" alt="random" />
                     {cartTickets.length > 0 &&
                       cartTickets.reduce((acc, cvalue) => {
-                        {/* console.log(cvalue); */}
+                        {
+                          /* console.log(cvalue); */
+                        }
                         if (cvalue.ticket_no < 10) {
                           return acc + 100;
                         }

@@ -14,7 +14,7 @@ export const ticketsFetch = (userid) => {
 
   return (dispatch) => {
     axios
-      .post("https://easylifeyes.com/lottery/get_my_cart", formData)
+      .post("https://redwinservices.in/lottery/get_my_cart", formData)
       .then((res) => {
         // console.log("from cart tickets", res.data);
         if (res.data.dataArr) {

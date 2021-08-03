@@ -29,7 +29,7 @@ const Lottery = ({ match }) => {
     // dispatch(ticketsFetch(user.userid));
     // fetching contest
     axios
-      .get(`https://easylifeyes.com/lottery/get_contests/${match.params.id}`)
+      .get(`https://redwinservices.in/lottery/get_contests/${match.params.id}`)
       .then((res) => {
         setState({
           ...state,
@@ -46,7 +46,7 @@ const Lottery = ({ match }) => {
         // console.log("from contest", resContest);
         axios
           .get(
-            `https://easylifeyes.com/lottery/get_club_tickets/${resContest.slug}`
+            `https://redwinservices.in/lottery/get_club_tickets/${resContest.slug}`
           )
           .then((res) => {
             setContestMessage("");
@@ -117,7 +117,7 @@ const Lottery = ({ match }) => {
     formData.append("contest_id", state.contest.id);
     formData.append("tickets", selectedTickets.join());
     let res = await axios.post(
-      "https://easylifeyes.com/lottery/add_to_cart",
+      "https://redwinservices.in/lottery/add_to_cart",
       formData
     );
     if (res.data.dataArr) {
@@ -134,6 +134,7 @@ const Lottery = ({ match }) => {
           src="../../assets/images/breadcrumb/lottery.png"
           alt="random"
         />
+
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

@@ -13,13 +13,13 @@ const Home = () => {
 
   useEffect(() => {
     // fetching contest
-    axios.get("https://easylifeyes.com/lottery/get_contests").then((res) => {
+    axios.get("https://redwinservices.in/lottery/get_contests").then((res) => {
       setState({
         ...state,
         contests: res.data.data,
       });
     });
-  }, []); 
+  }, []);
   return (
     <>
       {/* preloader area start */}
