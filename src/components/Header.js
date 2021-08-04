@@ -184,7 +184,12 @@ const Header = ({ location }) => {
               <div className="col-lg-12">
                 <nav className="navbar navbar-expand-lg navbar-light">
                   <Link className="navbar-brand" to="/">
-                    <img src="../../assets/images/logo.png" alt="logo" />
+                    {/* <img src="../../assets/images/logo.png"  alt="logo" /> */}
+                    <img
+                      src="../../assets/images/logowinnerpool1.png"
+                      alt="logo"
+                      height="50"
+                    />
                   </Link>
                   <button
                     className="navbar-toggler"
