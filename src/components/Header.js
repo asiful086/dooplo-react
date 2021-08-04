@@ -186,7 +186,7 @@ const Header = ({ location }) => {
                   <Link className="navbar-brand" to="/">
                     {/* <img src="../../assets/images/logo.png"  alt="logo" /> */}
                     <img
-                      src="../../assets/images/logowinnerpool1.png"
+                      src="../../assets/images/LOGO_2nd.png"
                       alt="logo"
                       height="50"
                     />
