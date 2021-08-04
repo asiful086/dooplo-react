@@ -156,6 +156,18 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="col-lg-12 text-center pt-5">
+                  <div>
+                    <img src="../../payment.jpeg" alt="" width="500px" />
+                  </div>
+                  <div className="my-5">
+                    <div>
+                      <span>Transaction ID</span>
+                      <input
+                        type="text"
+                        placeholder="Enter your transaction id"
+                      />
+                    </div>
+                  </div>
                   <Link to="#" className="mybtn1">
                     PurChase
                   </Link>
