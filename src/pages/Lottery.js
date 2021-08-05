@@ -3,10 +3,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
+import TicketModal from "../components/modal/TicketModal";
 import { ticketsFetch } from "../store/action/cartAction";
+import { show_ticket_modal } from "../store/action/modalAction";
 
 const Lottery = ({ match }) => {
   const user = useSelector((state) => state.userReducer.user);
+  const cartTickets = useSelector((state) => state.cartReducer.cartTickets);
+
   const dispatch = useDispatch();
 
   const [hours, setHours] = useState(0);
@@ -26,6 +30,10 @@ const Lottery = ({ match }) => {
   });
 
   useEffect(() => {
+    // if (cartTickets.length > 0) {
+    //   // setSelectedTickets(cartTickets[0].ticket_no);
+    //   setSelectedTickets([...selectedTickets, cartTickets[0].ticket_no]);
+    // }
     // dispatch(ticketsFetch(user.userid));
     // fetching contest
     axios
@@ -52,7 +60,7 @@ const Lottery = ({ match }) => {
             setContestMessage("");
             let the_data = res.data.data[0];
             console.log("from ticket", res.data);
-            setSelectedTickets([]);
+            // setSelectedTickets([]);
             setBlockedTickets(res.data.booked_tickets.tickets);
             if (the_data.enable === 0) {
               setShowTimer(true);
@@ -111,11 +119,13 @@ const Lottery = ({ match }) => {
     };
   });
 
-  const AddToCart = async () => {
+  const AddToCart = async (priceData) => {
+    console.log(priceData.price);
     var formData = new FormData();
     formData.append("userid", user.userid);
     formData.append("contest_id", state.contest.id);
     formData.append("tickets", selectedTickets.join());
+    formData.append("price", priceData.price);
     let res = await axios.post(
       "https://redwinservices.in/lottery/add_to_cart",
       formData
@@ -125,6 +135,16 @@ const Lottery = ({ match }) => {
     }
   };
 
+  const handleCallback = (childData) => {
+    // this.setState({data: childData})
+    // console.log(childData);
+    AddToCart(childData);
+  };
+
+  const unSelectTicket = (ticket) => {
+    setSelectedTickets(selectedTickets.filter((tket) => tket !== ticket));
+  };
+  console.log("hello select tickets", selectedTickets);
   return (
     <>
       {/* Breadcrumb Area Start */}
@@ -278,71 +298,6 @@ const Lottery = ({ match }) => {
                       <h4 className="title">Buy Lottery Tickets</h4>
                     </div>
                     <div className="content">
-                      <div className="top-area">
-                        <div className="row">
-                          <div className="col-lg-4">
-                            <div className="info-box">
-                              <h4 className="title">1 TICKET COSTS</h4>
-                              <div className="number">
-                                <img
-                                  src="../../rupee.png"
-                                  alt="rupee"
-                                  width="16"
-                                  className="mr-1 pb-1"
-                                />
-                                {/* <i className="fab fa-bitcoin" /> */}
-                                AKHAR = {state.contest.akhar_ticket_price}
-                                {/* {selectedTickets.filter((tket) => tket < 10)
-                                .length * state.contest.akhar_ticket_price} */}
-                              </div>
-                              <div className="number">
-                                <img
-                                  src="../../rupee.png"
-                                  alt="rupee"
-                                  width="16"
-                                  className="mr-1 pb-1"
-                                />
-                                {/* <i className="fab fa-bitcoin" /> */}
-                                TWO DIGIT NUMBER ={" "}
-                                {state.contest.digit_ticket_price}
-                                {/* {selectedTickets.filter((tket) => tket > 9)
-                                .length * state.contest.digit_ticket_price} */}
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-lg-4">
-                            <div className="info-box">
-                              <h4 className="title">QUANTITY</h4>
-                              <div className="number">
-                                <input
-                                  type="number"
-                                  value={selectedTickets.length}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-lg-4">
-                            <div className="info-box">
-                              <h4 className="title">TOTAL COST</h4>
-                              <div className="number">
-                                {/* <i className="fab fa-bitcoin" /> */}
-                                <img
-                                  src="../../rupee.png"
-                                  alt="rupee"
-                                  width="16"
-                                  className="mr-1 pb-1"
-                                />
-                                {selectedTickets.filter((tket) => tket < 10)
-                                  .length *
-                                  state.contest.akhar_ticket_price +
-                                  selectedTickets.filter((tket) => tket > 9)
-                                    .length *
-                                    state.contest.digit_ticket_price}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <div className="game-numbers">
                         <h4 className="title">Tickets</h4>
                         <div className="number-box">
@@ -353,13 +308,20 @@ const Lottery = ({ match }) => {
                                   ticket.tickets.map((ticket, i) => {
                                     let exist =
                                       selectedTickets.includes(ticket);
+
+                                    let existInCart = cartTickets.find(
+                                      (tket) =>
+                                        parseInt(tket.ticket_no) === ticket
+                                    );
+
                                     let blockedList =
                                       blockedTickets.includes(ticket);
                                     return (
                                       <li
                                         readOnly={blockedList}
                                         className={`${
-                                          exist && "contestListSelected"
+                                          (exist || existInCart) &&
+                                          "contestListSelected"
                                         }
 
                                       ${blockedList && "blockedtListSelected"}
@@ -368,17 +330,19 @@ const Lottery = ({ match }) => {
                                         key={i}
                                         onClick={() => {
                                           if (!blockedList) {
-                                            if (!exist) {
+                                            if (
+                                              !exist &&
+                                              !existInCart &&
+                                              selectedTickets.length === 0 &&
+                                              cartTickets.length === 0
+                                            ) {
                                               setSelectedTickets([
                                                 ...selectedTickets,
                                                 ticket,
                                               ]);
+                                              dispatch(show_ticket_modal());
                                             } else {
-                                              setSelectedTickets(
-                                                selectedTickets.filter(
-                                                  (tket) => tket !== ticket
-                                                )
-                                              );
+                                              unSelectTicket(ticket);
                                             }
                                           }
                                         }}
@@ -387,12 +351,17 @@ const Lottery = ({ match }) => {
                                       </li>
                                     );
                                   })}
+                                <TicketModal
+                                  selectedTickets={selectedTickets}
+                                  unSelectTicket={unSelectTicket}
+                                  handleCallback={handleCallback}
+                                />
                               </ul>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="row">
+                      {/* <div className="row">
                         <div className="col-lg-12 text-center">
                           <button
                             type="button"
@@ -402,7 +371,7 @@ const Lottery = ({ match }) => {
                             Add to cart
                           </button>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

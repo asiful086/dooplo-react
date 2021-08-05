@@ -1,6 +1,7 @@
 const initailState = {
   isLoginModal: false,
   isRegisterModal: false,
+  isTicketModal: false,
 };
 
 const modalReducer = (state = initailState, action) => {
@@ -24,6 +25,16 @@ const modalReducer = (state = initailState, action) => {
       return {
         ...state,
         isRegisterModal: false,
+      };
+    case "SHOW_TICKET_MODAL":
+      return {
+        ...state,
+        isTicketModal: true,
+      };
+    case "CLOSE_TICKET_MODAL":
+      return {
+        ...state,
+        isTicketModal: false,
       };
 
     default:
