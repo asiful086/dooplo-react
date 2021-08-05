@@ -116,10 +116,12 @@ const Cart = () => {
                                 src="../../rupee.png"
                                 width="36"
                                 alt="random"
+                                className="mx-1"
                               />
                               {/* {console.log(ticket)} */}
-                              {ticket.ticket_no < 10 ? 100 : 1000}
+                              {/* {ticket.ticket_no < 10 ? 100 : 1000} */}
                               {/* 0.00000051 */}
+                              {ticket.price}
                             </td>
                             <td className="text-white">{ticket.contest}</td>
                             <td>
