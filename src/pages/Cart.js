@@ -148,12 +148,11 @@ const Cart = () => {
                     {cartTickets.length > 0 &&
                       cartTickets.reduce((acc, cvalue) => {
                         {
-                          /* console.log(cvalue); */
-                        }
-                        if (cvalue.ticket_no < 10) {
+                          /* if (cvalue.ticket_no < 10) {
                           return acc + 100;
+                        } */
                         }
-                        return acc + 1000;
+                        return acc + parseInt(cvalue.price);
                       }, 0)}
                   </div>
                 </div>
