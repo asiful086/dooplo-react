@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import TicketModal from "../components/modal/TicketModal";
 import { ticketsFetch } from "../store/action/cartAction";
-import { show_ticket_modal } from "../store/action/modalAction";
+import {
+  close_ticket_modal,
+  show_ticket_modal,
+} from "../store/action/modalAction";
 
 const Lottery = ({ match }) => {
   const user = useSelector((state) => state.userReducer.user);
@@ -120,7 +123,6 @@ const Lottery = ({ match }) => {
   });
 
   const AddToCart = async (priceData) => {
-    console.log(priceData.price);
     var formData = new FormData();
     formData.append("userid", user.userid);
     formData.append("contest_id", state.contest.id);
@@ -133,12 +135,16 @@ const Lottery = ({ match }) => {
     if (res.data.dataArr) {
       dispatch(ticketsFetch(user.userid));
     }
+
+    return res.data;
+
+    // setTimeout(() => {
+    //   dispatch(close_ticket_modal());
+    // }, 1000);
   };
 
   const handleCallback = (childData) => {
-    // this.setState({data: childData})
-    // console.log(childData);
-    AddToCart(childData);
+    return AddToCart(childData);
   };
 
   const unSelectTicket = (ticket) => {

@@ -38,7 +38,7 @@ const TicketModal = (props) => {
               y: "-100vw",
               opacity: 0,
             }}
-            transition={{ type: "spring", bounce: 0, duration: 0.2 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.5 }}
             className="login-modal"
           >
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -86,7 +86,20 @@ const TicketModal = (props) => {
                       if (parseInt(values.price) === 0) {
                         return setErrors({ price: "price is not valid" });
                       } else {
-                        props.handleCallback(values);
+                        let the_res = props.handleCallback(values);
+                        the_res.then(function (result) {
+                          // console.log("the res", result); // "Some User token"
+                          setState({
+                            ...state,
+                            errorMessage: "",
+                            successMessage: result.message,
+                          });
+                        });
+                        // console.log(the_res);
+
+                        setTimeout(() => {
+                          dispatch(close_ticket_modal());
+                        }, 1000);
                       }
                     }}
                   >

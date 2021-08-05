@@ -23,7 +23,7 @@ const Cart = () => {
       "https://redwinservices.in/lottery/remove_cart_ticket",
       formData
     );
-    // console.log(res.data);
+    console.log(res.data);
 
     if (res.data.response === "SUCCESS") {
       dispatch(ticketsFetch(userid));

@@ -1,6 +1,6 @@
 import axios from "axios";
 export const addToCart = (item) => {
-  console.log(item);
+  // console.log(item);
   return {
     type: "ADD",
     payload: item,
@@ -8,7 +8,7 @@ export const addToCart = (item) => {
 };
 
 export const ticketsFetch = (userid) => {
-  console.log("user id from ticketsFetch", userid);
+  // console.log("user id from ticketsFetch", userid);
   var formData = new FormData();
   formData.append("userid", userid);
 
@@ -16,7 +16,13 @@ export const ticketsFetch = (userid) => {
     axios
       .post("https://redwinservices.in/lottery/get_my_cart", formData)
       .then((res) => {
-        // console.log("from cart tickets", res.data);
+        if (res.data.message === "No tickets in your cart.") {
+          // console.log("from cart tickets", res.data);
+          dispatch({
+            type: "FETCH_TICKETS",
+            payload: [],
+          });
+        }
         if (res.data.dataArr) {
           dispatch({
             type: "FETCH_TICKETS",
