@@ -11,6 +11,13 @@ const Cart = () => {
 
   useEffect(() => {
     if (user) {
+      var formData = new FormData();
+      formData.append("userid", user.userid);
+      // axios
+      //   .post("https://redwinservices.in/lottery/create_order", formData)
+      //   .then((res) => {
+      //     console.log(res.data);
+      //   });
       dispatch(ticketsFetch(user.userid));
     }
   }, []);
