@@ -45,15 +45,15 @@ const Cart = () => {
     var formData = new FormData();
     formData.append("order_id", orderId);
     formData.append("transaction_id", transactionId);
-    let res = axios.post(
-      "https://redwinservices.in/lottery/complete_transaction",
-      formData
-    );
-    console.log(res.data);
+    axios
+      .post("https://redwinservices.in/lottery/complete_transaction", formData)
+      .then((res) => {
+        console.log(res.data);
 
-    // if (res.data.response === "SUCCESS") {
-    //   dispatch(ticketsFetch(userid));
-    // }
+        // if (res.data.response === "SUCCESS") {
+        dispatch(ticketsFetch(user.userid));
+        // }
+      });
   };
 
   return (
