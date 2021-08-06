@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ticketsFetch } from "../store/action/cartAction";
@@ -8,16 +8,18 @@ const Cart = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
   const cartTickets = useSelector((state) => state.cartReducer.cartTickets);
-
+  const [orderId, setOrderId] = useState("");
+  const [transactionId, setTransactionId] = useState("");
   useEffect(() => {
     if (user) {
       var formData = new FormData();
       formData.append("userid", user.userid);
-      // axios
-      //   .post("https://redwinservices.in/lottery/create_order", formData)
-      //   .then((res) => {
-      //     console.log(res.data);
-      //   });
+      axios
+        .post("https://redwinservices.in/lottery/create_order", formData)
+        .then((res) => {
+          setOrderId(res.data.order_id);
+          // console.log(res.data);
+        });
       dispatch(ticketsFetch(user.userid));
     }
   }, []);
@@ -35,6 +37,23 @@ const Cart = () => {
     if (res.data.response === "SUCCESS") {
       dispatch(ticketsFetch(userid));
     }
+  };
+
+  const hitPurchase = (e) => {
+    console.log("order and transaction", orderId, transactionId);
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append("order_id", orderId);
+    formData.append("transaction_id", transactionId);
+    let res = axios.post(
+      "https://redwinservices.in/lottery/complete_transaction",
+      formData
+    );
+    console.log(res.data);
+
+    // if (res.data.response === "SUCCESS") {
+    //   dispatch(ticketsFetch(userid));
+    // }
   };
 
   return (
@@ -167,18 +186,22 @@ const Cart = () => {
                   <div>
                     <img src="../../payment.jpeg" alt="" width="500px" />
                   </div>
-                  <div className="my-5">
-                    <div>
-                      <span>Transaction ID</span>
-                      <input
-                        type="text"
-                        placeholder="Enter your transaction id"
-                      />
+                  <form onSubmit={hitPurchase}>
+                    <div className="my-5">
+                      <div>
+                        <span>Transaction ID</span>
+                        <input
+                          type="text"
+                          placeholder="Enter your transaction id"
+                          onChange={(e) => setTransactionId(e.target.value)}
+                          value={transactionId}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <Link to="#" className="mybtn1">
-                    PurChase
-                  </Link>
+                    <button type="submit" className="mybtn1">
+                      PurChase
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
