@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import AfterTransactionModal from "../components/modal/AfterTransactionModal";
 import { ticketsFetch } from "../store/action/cartAction";
+import { show_after_transaction_modal } from "../store/action/modalAction";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -50,6 +52,7 @@ const Cart = () => {
       .then((res) => {
         console.log(res.data);
 
+        dispatch(show_after_transaction_modal());
         // if (res.data.response === "SUCCESS") {
         dispatch(ticketsFetch(user.userid));
         // }
@@ -59,6 +62,7 @@ const Cart = () => {
   return (
     <>
       <section className="breadcrumb-area cart">
+        <AfterTransactionModal />
         <img
           className="bc-img"
           src="../../assets/images/breadcrumb/cart-bg.png"

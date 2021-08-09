@@ -1,21 +1,19 @@
 import { Formik, Form } from "formik";
-import axios from "axios";
-import AuthField from "../form/AuthField";
-import { Link, useHistory } from "react-router-dom";
+// import axios from "axios";
+// import AuthField from "../form/AuthField";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/action/userAction";
-import { ticketsFetch } from "../../store/action/cartAction";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  close_after_transaction_modal,
   close_ticket_modal,
-  show_register_modal,
 } from "../../store/action/modalAction";
 import { useState } from "react";
 
-const TicketModal = (props) => {
+const AfterTransactionModal = (props) => {
   const history = useHistory();
-  const isTicketModal = useSelector(
-    (state) => state.modalReducer.isTicketModal
+  const isAfterTransactionModal = useSelector(
+    (state) => state.modalReducer.isAfterTransactionModal
   );
 
   const dispatch = useDispatch();
@@ -26,7 +24,7 @@ const TicketModal = (props) => {
   });
   return (
     <AnimatePresence>
-      {isTicketModal && (
+      {isAfterTransactionModal && (
         <>
           <motion.div
             initial={{ y: "100vw", opacity: 0 }}
@@ -62,8 +60,8 @@ const TicketModal = (props) => {
                     />
                   </div>
                   <div className="header-area">
-                    <h4 className="title">GREAT TO HAVE YOU ON BOARD</h4>
-                    <p className="sub-title">Enter your price.</p>
+                    <h4 className="title">Thank you for your order.</h4>
+                    {/* <p className="sub-title">Enter your price.</p> */}
 
                     {state.errorMessage && (
                       <p className="fw-bold text-danger">
@@ -83,43 +81,28 @@ const TicketModal = (props) => {
                       price: "",
                     }}
                     onSubmit={async (values, { setErrors }) => {
-                      if (parseInt(values.price) === 0) {
-                        return setErrors({ price: "price is not valid" });
-                      } else {
-                        let the_res = props.handleCallback(values);
-                        the_res.then(function (result) {
-                          // console.log("the res", result); // "Some User token"
-                          setState({
-                            ...state,
-                            errorMessage: "",
-                            successMessage: result.message,
-                          });
-
-                          setTimeout(() => {
-                            history.push("/checkout");
-                            dispatch(close_ticket_modal());
-                          }, 1000);
-                        });
-                        // console.log(the_res);
-                      }
+                      setTimeout(() => {
+                        history.push("/");
+                        dispatch(close_after_transaction_modal());
+                      }, 1000);
                     }}
                   >
                     {({ values, isSubmitting, errors }) => (
                       <div className="form-area">
                         <Form>
                           {/* Price */}
-                          <AuthField
+                          {/* <AuthField
                             required={true}
                             label="Price"
                             name="price"
                             type="text"
                             id="login-input-price"
                             placeholder="Enter your price"
-                          />
+                          /> */}
 
                           <div className="form-group">
                             <button type="submit" className="mybtn1">
-                              Book Ticket
+                              Continue booking
                             </button>
                           </div>
                         </Form>
@@ -151,4 +134,4 @@ const TicketModal = (props) => {
   );
 };
 
-export default TicketModal;
+export default AfterTransactionModal;

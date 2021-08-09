@@ -29,3 +29,13 @@ export const close_ticket_modal = () => {
     type: "CLOSE_TICKET_MODAL",
   };
 };
+export const show_after_transaction_modal = () => {
+  return {
+    type: "SHOW_AFTER_TRANSACTION_MODAL",
+  };
+};
+export const close_after_transaction_modal = () => {
+  return {
+    type: "CLOSE_AFTER_TRANSACTION_MODAL",
+  };
+};

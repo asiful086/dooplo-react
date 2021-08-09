@@ -2,6 +2,7 @@ const initailState = {
   isLoginModal: false,
   isRegisterModal: false,
   isTicketModal: false,
+  isAfterTransactionModal: false,
 };
 
 const modalReducer = (state = initailState, action) => {
@@ -35,6 +36,16 @@ const modalReducer = (state = initailState, action) => {
       return {
         ...state,
         isTicketModal: false,
+      };
+    case "SHOW_AFTER_TRANSACTION_MODAL":
+      return {
+        ...state,
+        isAfterTransactionModal: true,
+      };
+    case "CLOSE_AFTER_TRANSACTION_MODAL":
+      return {
+        ...state,
+        isAfterTransactionModal: false,
       };
 
     default:
