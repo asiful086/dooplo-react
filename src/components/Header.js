@@ -60,7 +60,8 @@ const Header = ({ location }) => {
                       </li>
                       <li>
                         <p>
-                          <i className="fas fa-envelope" /> info@Dooplo.com
+                          <i className="fas fa-envelope" />{" "}
+                          info@winnerpool.online
                         </p>
                       </li>
                       <li>

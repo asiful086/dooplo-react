@@ -42,7 +42,7 @@
 //                 <h5 className="subtitle">Try to check out our</h5>
 //                 <h2 className="title">Tournaments!</h2>
 //                 <p className="text">
-//                   Dooplo Tournaments are exciting slot competitions. The goal is
+//                   winnerpool Tournaments are exciting slot competitions. The goal is
 //                   to win as many points within a certain amount of time. Player
 //                   with the most points at the end wins.
 //                 </p>

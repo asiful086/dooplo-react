@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="row">
                       <div className="col-lg-12">
                         <div className="heading-area">
-                          <h5 className="sub-title">subscribe to Dooplo</h5>
+                          <h5 className="sub-title">subscribe to winnerpool</h5>
                           <h4 className="title">To Get Exclusive Benefits</h4>
                         </div>
                       </div>
@@ -225,7 +225,7 @@ const Footer = () => {
                 <div className="left-area">
                   <p>
                     Copyright © 2019.All Rights Reserved By{" "}
-                    <Link to="#">Dooplo</Link>
+                    <Link to="#">winnerpool</Link>
                   </p>
                 </div>
               </div>

@@ -44,7 +44,7 @@ const Home = () => {
                   <h1 className="title">PLay To WIN</h1>
                   <p className="text">
                     Play, Invest,Exchange and Join the Contest with high rewards
-                    at Dooplo!
+                    at winnerpool!
                   </p>
                   <div className="links">
                     <Link href="#" className="mybtn1 link1">
@@ -326,8 +326,8 @@ const Home = () => {
                   <h2 className="title ">be one of them</h2>
                   <p className="text">
                     Get started in less than 5 min - no credit card
-                    required.Gain early access to Dooplo and experience crypto
-                    like never before.
+                    required.Gain early access to winnerpool and experience
+                    crypto like never before.
                   </p>
                   <Link href="#" className="mybtn1">
                     Play Now!

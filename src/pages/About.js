@@ -52,9 +52,9 @@
 //             <div className="col-lg-6">
 //               <div className="section-heading">
 //                 <h5 className="subtitle">Our Journey in a Nutshell</h5>
-//                 <h2 className="title">About Dooplo</h2>
+//                 <h2 className="title">About winnerpool</h2>
 //                 <p className="text">
-//                   Dooplo is a unique cryptogames providing pleasant pastime. We
+//                   winnerpool is a unique cryptogames providing pleasant pastime. We
 //                   offer our members to play Provably Fair games and some bonus
 //                   games, join contests, achieve various awards.
 //                 </p>

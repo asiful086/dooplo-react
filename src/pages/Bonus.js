@@ -35,7 +35,7 @@
 //             <div className="col-lg-8 col-md-10">
 //               <div className="section-heading">
 //                 <h5 className="subtitle">Try to check out our</h5>
-//                 <h2 className="title">Dooplo Bonuses</h2>
+//                 <h2 className="title">winnerpool Bonuses</h2>
 //                 <p className="text">
 //                   We update our site regularly; more and more winners are added
 //                   every day! To locate the most recent winner's information
