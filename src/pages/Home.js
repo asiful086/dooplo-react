@@ -11,6 +11,11 @@ const Home = () => {
     contests: [],
   });
 
+  const [faqs, setFaqs] = useState({
+    contest: false,
+    winner: false,
+  });
+
   useEffect(() => {
     // fetching contest
     axios.get("https://redwinservices.in/lottery/get_contests").then((res) => {
@@ -316,6 +321,154 @@ const Home = () => {
 
       {/* Latest Activities Area End */}
       {/* Get Start Area Start */}
+      <section className="get-start">
+        <div className="container">
+          <div className="section-heading">
+            <h2 className="title">FAQ</h2>
+            <h5 className="subtitle">FREQUENTLY ASKED QUESTIONS:</h5>
+            {/* <p className="text">
+              We update our site regularly; more and more winners are added
+              every day! To locate the most recent winner's information
+            </p> */}
+          </div>
+          <div className="faq">
+            <div className="each-faq login-faq my-1 p-3 w-100 rounded d-flex align-items-center">
+              <h5 className="heading">
+                {" "}
+                Every customer need to signup with winnerpool.online{" "}
+              </h5>
+              <div className="ml-auto"></div>
+            </div>
+
+            <div
+              onClick={() =>
+                setFaqs({
+                  ...faqs,
+                  winner: false,
+                  contest: !faqs.contest,
+                })
+              }
+              className="each-faq contest-faq my-3 p-3 w-100 rounded d-flex align-items-center"
+            >
+              <h5 className="heading">Contest Timings </h5>
+              <div className="ml-auto">
+                <svg
+                  className="text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width=""
+                  height="35"
+                  fill="currentColor"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d={`${
+                      faqs.contest
+                        ? "M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        : "M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    } `}
+                  />
+                </svg>
+              </div>
+            </div>
+            {faqs.contest && (
+              <div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Mumbai Club - 10:30 am To 12:30 pm</p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Delhi Club - 12:30 am To 02:30 pm</p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Kolkata Club - 02:30 pm To 04:30 pm</p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Hyderabad - 04:30 pm To 06:30 pm</p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Goa Club - 06:30 pm To 08:30 pm</p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">Chennai Club - 08:30 pm To 10:30 pm</p>
+                </div>
+              </div>
+            )}
+
+            <div
+              onClick={() =>
+                setFaqs({
+                  ...faqs,
+                  contest: false,
+                  winner: !faqs.winner,
+                })
+              }
+              className="each-faq winner-faq my-3 p-3 w-100 rounded d-flex align-items-center"
+            >
+              <h5 className="heading">Winner Category – Two Types </h5>
+              <div className="ml-auto">
+                <svg
+                  className="text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width=""
+                  height="35"
+                  fill="currentColor"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d={`${
+                      faqs.winner
+                        ? "M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        : "M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    } `}
+                  />
+                </svg>
+              </div>
+            </div>
+            {faqs.winner && (
+              <div>
+                <div className="alert " role="alert">
+                  <p className="m-0">
+                    Single Digit No (Akhar) - Will Get Nine Times the amount
+                    invested for the particular single Digit/no
+                  </p>
+                </div>
+                <div className="alert " role="alert">
+                  <p className="m-0">
+                    Two Digit No - Will Get Ninety Times the amount invested for
+                    the Particular Two Digit Digit/no
+                  </p>
+                </div>
+                <div className="alert alert-primary" role="alert">
+                  EXAMPLE: In case person select ‘5’ @ Rs.100, then in this
+                  winner will get Rs. 900/- i.e. Nine times. In case person
+                  select ‘25’ @ Rs.1000, then in this winner will get Rs.
+                  90000/- i.e. Ninety Times
+                </div>
+              </div>
+            )}
+
+            <div className="each-faq participate-faq my-3 p-3 w-100 rounded d-flex align-items-center">
+              <h5 className="heading">
+                User can participate multiple times in any contest.{" "}
+              </h5>
+              <div className="ml-auto"></div>
+            </div>
+            <div className="each-faq amount-faq my-3 p-3 w-100 rounded d-flex align-items-center">
+              <h5 className="heading">
+                Winner will get the winning amount in his or her account
+                mentioned in the profile in 30 minutes of the results declared
+              </h5>
+              <div className="ml-auto"></div>
+            </div>
+          </div>
+
+          {/* <div className="row"></div> */}
+        </div>
+      </section>
+
       {/* <section className="get-start">
         <div className="container">
           <div className="row">

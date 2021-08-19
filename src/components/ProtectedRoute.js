@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { show_login_modal } from "../store/action/modalAction";
+import { auth } from "../utilityfunc";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       <Route
         {...rest}
         render={(props) => {
-          return <Component {...props} />;
+          if (auth()) {
+            return <Component {...props} />;
+          }
         }}
       />
     </Switch>

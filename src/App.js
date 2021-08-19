@@ -20,6 +20,7 @@ import Lottery from "./pages/Lottery";
 import "./App.css";
 import Profile from "./pages/profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { auth } from "./utilityfunc";
 
 const App = () => {
   let urlName = useLocation().pathname;
@@ -29,7 +30,15 @@ const App = () => {
     <>
       {!isExists && <Header />}
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route
+          path="/"
+          exact
+          render={(props) => {
+            if (auth()) {
+              return <Home {...props} />;
+            }
+          }}
+        />
         {/* <Route path="/play" component={Play} />
         <Route path="/lottery" component={Lottery} />
         <Route path="/tournaments" component={Tournaments} />

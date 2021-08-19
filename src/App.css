@@ -133,29 +133,27 @@
   width: 100vw;
 }
 
+div.each-faq {
+  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: red; */
+  cursor: pointer;
+}
+div.each-faq .heading {
+  color: white;
+  margin: 0;
+}
+
+/* .login-faq,
+.contest-faq {
+  cursor: pointer;
+} */
+
+/* div.each-faq svg {
+  cursor: pointer;
+} */
+
 @media screen and (max-width: 576px) {
   .login-modal {
     width: 100% !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
