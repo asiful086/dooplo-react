@@ -40,7 +40,7 @@ const Home = () => {
             <div className="col-lg-5 d-flex align-self-center">
               <div className="left-content">
                 <div className="content">
-                  <h5 className="subtitle">New Crypto Game</h5>
+                  {/* <h5 className="subtitle">New Crypto Game</h5> */}
                   <h1 className="title">PLay To WIN</h1>
                   <p className="text">
                     Play, Invest,Exchange and Join the Contest with high rewards
@@ -316,7 +316,7 @@ const Home = () => {
 
       {/* Latest Activities Area End */}
       {/* Get Start Area Start */}
-      <section className="get-start">
+      {/* <section className="get-start">
         <div className="container">
           <div className="row">
             <div className="col-lg-7 d-flex align-self-center">
@@ -342,8 +342,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-      {/* Get Start Area End */}
+      </section> */}
+      {/* Get Start Area End  */}
       {/* Recent Winners Area Start */}
       <section className="recent-winners">
         <div className="container">
