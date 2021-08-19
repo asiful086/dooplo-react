@@ -42,6 +42,7 @@ const Lottery = ({ match }) => {
     axios
       .get(`https://redwinservices.in/lottery/get_contests/${match.params.id}`)
       .then((res) => {
+        console.log("the actual contest", res.data);
         setState({
           ...state,
           contest: res.data.data[0],
@@ -190,7 +191,7 @@ const Lottery = ({ match }) => {
       <section className="lottery-area">
         <div className="lottery-staticstics">
           <div className="container">
-            <div className="row">
+            <div className="row justify-content-center">
               <div className="col-lg-4">
                 <div className="single-staticstics">
                   <div className="left">
@@ -202,15 +203,17 @@ const Lottery = ({ match }) => {
                     </div>
                   </div>
                   <div className="right">
-                    <h4 className="title">Lottery Jackpot</h4>
-                    <div className="count">
-                      <img src="../../assets/images/icon1.png" alt="random" />
-                      <span>0.416250</span>
+                    <h4 className="title">
+                      start at: {state.contest.entry_start_time}
+                    </h4>
+                    <div className="countt">
+                      {/* <img src="../../assets/images/icon1.png" alt="random" /> */}
+                      <span>draw at: {state.contest.draw_time}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4">
+              {/* <div className="col-lg-4">
                 <div className="single-staticstics">
                   <div className="left">
                     <div className="icon">
@@ -253,7 +256,7 @@ const Lottery = ({ match }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
