@@ -6,5 +6,6 @@ export const auth = () => {
 
   // today = mm + "/" + dd + "/" + yyyy;
 
-  return parseInt(mm) === 8;
+  // return parseInt(mm) === 8;
+  return true;
 };

@@ -40,7 +40,7 @@ const Lottery = ({ match }) => {
     // dispatch(ticketsFetch(user.userid));
     // fetching contest
     axios
-      .get(`https://redwinservices.in/lottery/get_contests/${match.params.id}`)
+      .get(`https://webcab.in/lottery/get_contests/${match.params.id}`)
       .then((res) => {
         console.log("the actual contest", res.data);
         setState({
@@ -57,9 +57,7 @@ const Lottery = ({ match }) => {
         // setSeconds(drCSecond[2] - c_seconds[2]);
         // console.log("from contest", resContest);
         axios
-          .get(
-            `https://redwinservices.in/lottery/get_club_tickets/${resContest.slug}`
-          )
+          .get(`https://webcab.in/lottery/get_club_tickets/${resContest.slug}`)
           .then((res) => {
             setContestMessage("");
             let the_data = res.data.data[0];
@@ -130,7 +128,7 @@ const Lottery = ({ match }) => {
     formData.append("tickets", selectedTickets.join());
     formData.append("price", priceData.price);
     let res = await axios.post(
-      "https://redwinservices.in/lottery/add_to_cart",
+      "https://webcab.in/lottery/add_to_cart",
       formData
     );
     if (res.data.dataArr) {

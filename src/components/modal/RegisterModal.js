@@ -102,7 +102,7 @@ const RegisterModal = () => {
                       formData.append("password", values.password);
                       formData.append("cpassword", values.cpassword);
                       let res = await axios.post(
-                        "https://redwinservices.in/lottery/signup",
+                        "https://webcab.in/lottery/signup",
                         formData
                       );
                       // console.log("this is from register", res.data);

@@ -26,14 +26,14 @@ const Profile = ({ match }) => {
     formData.append("userid", match.params.id);
     // formData.append("userid", 4);
     axios
-      .post("https://redwinservices.in/lottery/get_user_profile", formData)
+      .post("https://webcab.in/lottery/get_user_profile", formData)
       .then((res) => {
         setProfileData(res.data.data[0]);
       });
 
-    axios.get("https://redwinservices.in/lottery/get_states").then((res) => {
+    axios.get("https://webcab.in/lottery/get_states").then((res) => {
       let all_state = res.data.data;
-      axios.post("https://redwinservices.in/lottery/get_cities").then((res) => {
+      axios.post("https://webcab.in/lottery/get_cities").then((res) => {
         // console.log("indisde city", res.data);
         setState({
           ...state,
@@ -139,7 +139,7 @@ const Profile = ({ match }) => {
               formData.append("ifsc_code", values.ifsc_code);
               formData.append("bank_name", values.bank_name);
               let res = await axios.post(
-                "https://redwinservices.in/lottery/save_profile",
+                "https://webcab.in/lottery/save_profile",
                 formData
               );
 

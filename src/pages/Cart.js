@@ -17,7 +17,7 @@ const Cart = () => {
       var formData = new FormData();
       formData.append("userid", user.userid);
       axios
-        .post("https://redwinservices.in/lottery/create_order", formData)
+        .post("https://webcab.in/lottery/create_order", formData)
         .then((res) => {
           setOrderId(res.data.order_id);
           // console.log(res.data);
@@ -31,7 +31,7 @@ const Cart = () => {
     formData.append("userid", userid);
     formData.append("cart_id", cart_id);
     let res = await axios.post(
-      "https://redwinservices.in/lottery/remove_cart_ticket",
+      "https://webcab.in/lottery/remove_cart_ticket",
       formData
     );
     console.log(res.data);
@@ -48,7 +48,7 @@ const Cart = () => {
     formData.append("order_id", orderId);
     formData.append("transaction_id", transactionId);
     axios
-      .post("https://redwinservices.in/lottery/complete_transaction", formData)
+      .post("https://webcab.in/lottery/complete_transaction", formData)
       .then((res) => {
         console.log(res.data);
 

@@ -14,7 +14,7 @@ export const ticketsFetch = (userid) => {
 
   return (dispatch) => {
     axios
-      .post("https://redwinservices.in/lottery/get_my_cart", formData)
+      .post("https://webcab.in/lottery/get_my_cart", formData)
       .then((res) => {
         if (res.data.message === "No tickets in your cart.") {
           // console.log("from cart tickets", res.data);
